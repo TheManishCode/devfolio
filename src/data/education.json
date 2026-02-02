@@ -1,0 +1,188 @@
+{
+    "education": {
+        "degree": {
+            "title": "Bachelor of Engineering",
+            "field": "Computer Science Engineering (AI & Data Science)",
+            "institution": "Visvesvaraya Technological University (VTU)",
+            "duration": "2022 – 2026",
+            "focusAreas": [
+                "Computer Science Foundations",
+                "Artificial Intelligence",
+                "Data Science",
+                "Systems & Networking",
+                "Software Engineering"
+            ]
+        },
+        "semesters": [
+            {
+                "semester": 1,
+                "themes": [
+                    "Programming Fundamentals",
+                    "Mathematical Reasoning",
+                    "Engineering Foundations"
+                ],
+                "subjects": [
+                    "Programming in C",
+                    "Engineering Mathematics I",
+                    "Engineering Physics",
+                    "Basic Electrical Engineering",
+                    "Engineering Graphics",
+                    "Technical Communication"
+                ]
+            },
+            {
+                "semester": 2,
+                "themes": [
+                    "Data Handling",
+                    "Object-Oriented Thinking",
+                    "Core Mathematics"
+                ],
+                "subjects": [
+                    "Engineering Mathematics II",
+                    "Data Structures",
+                    "Object-Oriented Programming with C++",
+                    "Basic Electronics",
+                    "Environmental Studies"
+                ]
+            },
+            {
+                "semester": 3,
+                "themes": [
+                    "Core Computer Science",
+                    "Low-Level Systems",
+                    "Algorithmic Thinking"
+                ],
+                "subjects": [
+                    "Discrete Mathematics",
+                    "Computer Organization and Architecture",
+                    "Operating Systems",
+                    "Design and Analysis of Algorithms",
+                    "Database Management Systems"
+                ]
+            },
+            {
+                "semester": 4,
+                "themes": [
+                    "Systems Programming",
+                    "Networking Basics",
+                    "Software Design"
+                ],
+                "subjects": [
+                    "Analysis and Design of Algorithms",
+                    "Operating Systems",
+                    "Computer Networks",
+                    "Software Engineering",
+                    "Theory of Computation"
+                ]
+            },
+            {
+                "semester": 5,
+                "themes": [
+                    "Artificial Intelligence Foundations",
+                    "Applied Data Handling",
+                    "Security Basics"
+                ],
+                "subjects": [
+                    "Artificial Intelligence",
+                    "Machine Learning",
+                    "Cryptography and Network Security",
+                    "Web Technologies",
+                    "Professional Elective"
+                ]
+            },
+            {
+                "semester": 6,
+                "themes": [
+                    "Advanced AI",
+                    "Large-Scale Data",
+                    "System Intelligence"
+                ],
+                "subjects": [
+                    "Deep Learning",
+                    "Natural Language Processing",
+                    "Big Data Analytics",
+                    "Data Engineering & MLOps",
+                    "Open Elective"
+                ]
+            },
+            {
+                "semester": 7,
+                "themes": [
+                    "Applied AI Systems",
+                    "Production-Scale ML",
+                    "Research & Engineering Practice"
+                ],
+                "subjects": [
+                    "Deep Learning",
+                    "Natural Language Processing",
+                    "Data Engineering & MLOps",
+                    "Cryptography and Network Security",
+                    "Major Project – Phase I"
+                ]
+            },
+            {
+                "semester": 8,
+                "themes": [
+                    "Security",
+                    "Advanced Programming",
+                    "Capstone Engineering"
+                ],
+                "subjects": [
+                    "Ethical Hacking",
+                    "Programming in Modern C++",
+                    "Major Project – Phase II"
+                ]
+            }
+        ]
+    },
+    "supplementaryLearning": {
+        "nptelCourses": [
+            {
+                "id": "ethical-hacking-nptel",
+                "title": "Ethical Hacking",
+                "platform": "NPTEL (Swayam)",
+                "provider": "IIT",
+                "focus": [
+                    "Network Security",
+                    "Vulnerability Assessment",
+                    "Penetration Testing",
+                    "Web Security",
+                    "Cryptography"
+                ],
+                "topics": [
+                    "TCP/IP and Networking Fundamentals",
+                    "System and Web Hacking",
+                    "Malware and Attack Vectors",
+                    "Cryptographic Systems",
+                    "Wireless and DNS Attacks"
+                ]
+            },
+            {
+                "id": "modern-cpp-nptel",
+                "title": "Programming in Modern C++",
+                "platform": "NPTEL (Swayam)",
+                "provider": "IIT",
+                "focus": [
+                    "Modern C++ Standards",
+                    "High-Performance Programming",
+                    "Concurrency"
+                ],
+                "topics": [
+                    "Object-Oriented Programming",
+                    "Templates and STL",
+                    "Move Semantics",
+                    "Concurrency and Multithreading",
+                    "Modern C++ (C++11/14/17)"
+                ]
+            }
+        ]
+    },
+    "academicCapabilities": [
+        "Strong foundation in computer science theory",
+        "Hands-on experience with AI and ML systems",
+        "Understanding of production ML pipelines",
+        "System-level programming and optimization",
+        "Applied cybersecurity and ethical hacking",
+        "Modern C++ and performance-oriented programming"
+    ]
+}

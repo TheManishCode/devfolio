@@ -1,0 +1,308 @@
+{
+  "platform": "Epic Games",
+  "stats": {
+    "totalGames": 41,
+    "totalXP": 35,
+    "achievementsUnlocked": 3,
+    "platinum": 0
+  },
+  "library": [
+    {
+      "id": "redacted",
+      "title": "[REDACTED]",
+      "cover": "/game-covers/redacted.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 34
+      }
+    },
+    {
+      "id": "cat-quest",
+      "title": "Cat Quest",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/593280/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 12
+      }
+    },
+    {
+      "id": "deathloop",
+      "title": "DEATHLOOP",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1252330/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "disco-elysium",
+      "title": "Disco Elysium - The Final Cut",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/632470/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 45
+      }
+    },
+    {
+      "id": "dragon-age-inquisition",
+      "title": "Dragon Age: Inquisition – Game of the Year Edition",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1222690/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "dynasty-legends-2",
+      "title": "Dynasty Legends 2",
+      "cover": "/game-covers/dynasty-legends-2.png",
+      "achievements": null
+    },
+    {
+      "id": "figment-2",
+      "title": "Figment 2: Creed Valley",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1085220/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "fortnite",
+      "title": "Fortnite Battle Royale",
+      "cover": "/game-covers/fortnite.png",
+      "achievements": null
+    },
+    {
+      "id": "foxcode",
+      "title": "FoxCode",
+      "cover": null,
+      "achievements": null
+    },
+    {
+      "id": "genshin-impact",
+      "title": "Genshin Impact",
+      "cover": "/game-covers/genshin-impact.jpg",
+      "achievements": null
+    },
+    {
+      "id": "ghostrunner-2",
+      "title": "Ghostrunner 2",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2144740/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 34
+      }
+    },
+    {
+      "id": "ghostwire-tokyo",
+      "title": "Ghostwire: Tokyo",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1475810/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "gigantic-rampage",
+      "title": "Gigantic: Rampage Edition",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2528600/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 26
+      }
+    },
+    {
+      "id": "gta-v-enhanced",
+      "title": "Grand Theft Auto V Enhanced",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 1,
+        "total": 77
+      }
+    },
+    {
+      "id": "hell-let-loose",
+      "title": "Hell Let Loose",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/686810/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 195
+      }
+    },
+    {
+      "id": "hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 45
+      }
+    },
+    {
+      "id": "hot-wheels-unleashed",
+      "title": "Hot Wheels Unleashed",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1271700/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "kill-knight",
+      "title": "Kill Knight",
+      "cover": "/game-covers/kill-knight.png",
+      "achievements": {
+        "unlocked": 0,
+        "total": 47
+      }
+    },
+    {
+      "id": "kurtzpel",
+      "title": "KurtzPel",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/844870/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "marvel-rivals",
+      "title": "Marvel Rivals",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2767030/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "mortal-shell",
+      "title": "Mortal Shell",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1110910/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 40
+      }
+    },
+    {
+      "id": "neko-ghost-jump",
+      "title": "Neko Ghost, Jump!",
+      "cover": "/game-covers/neko-ghost-jump.png",
+      "achievements": null
+    },
+    {
+      "id": "ogu-secret-forest",
+      "title": "Ogu and the Secret Forest",
+      "cover": "/game-covers/ogu-secret-forest.png",
+      "achievements": {
+        "unlocked": 0,
+        "total": 41
+      }
+    },
+    {
+      "id": "pubg-battlegrounds",
+      "title": "PUBG: BATTLEGROUNDS",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 1,
+        "total": 37
+      }
+    },
+    {
+      "id": "realitycapture",
+      "title": "RealityCapture 1.5.1",
+      "cover": null,
+      "achievements": null
+    },
+    {
+      "id": "realityscan",
+      "title": "RealityScan 2.1",
+      "cover": null,
+      "achievements": null
+    },
+    {
+      "id": "red-dead-2",
+      "title": "Red Dead Redemption 2",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "sky-racket",
+      "title": "Sky Racket",
+      "cover": "/game-covers/sky-racket.png",
+      "achievements": null
+    },
+    {
+      "id": "smite-2",
+      "title": "SMITE 2",
+      "cover": "/game-covers/smite-2.png",
+      "achievements": null
+    },
+    {
+      "id": "strike-protocol",
+      "title": "Strike Protocol",
+      "cover": null,
+      "achievements": null
+    },
+    {
+      "id": "callisto-protocol",
+      "title": "The Callisto Protocol",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1544020/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 47
+      }
+    },
+    {
+      "id": "last-stand-aftermath",
+      "title": "The Last Stand: Aftermath",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1266840/library_600x900_2x.jpg",
+      "achievements": null
+    },
+    {
+      "id": "the-watch",
+      "title": "The Watch (Alpha)",
+      "cover": null,
+      "achievements": {
+        "unlocked": 0,
+        "total": 7
+      }
+    },
+    {
+      "id": "toem",
+      "title": "TOEM",
+      "cover": "/game-covers/toem.png",
+      "achievements": null
+    },
+    {
+      "id": "turmoil",
+      "title": "Turmoil",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/361280/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 39
+      }
+    },
+    {
+      "id": "twinmotion-2025",
+      "title": "Twinmotion 2025.2",
+      "cover": null,
+      "achievements": null
+    },
+    {
+      "id": "valorant",
+      "title": "VALORANT",
+      "cover": "/game-covers/valorant.png",
+      "achievements": null
+    },
+    {
+      "id": "viewfinder",
+      "title": "Viewfinder",
+      "cover": "/game-covers/viewfinder.png",
+      "achievements": {
+        "unlocked": 0,
+        "total": 46
+      }
+    },
+    {
+      "id": "world-of-warships",
+      "title": "World of Warships",
+      "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/552990/library_600x900_2x.jpg",
+      "achievements": {
+        "unlocked": 0,
+        "total": 44
+      }
+    },
+    {
+      "id": "wuthering-waves",
+      "title": "Wuthering Waves",
+      "cover": "/game-covers/wuthering-waves.png",
+      "achievements": null
+    },
+    {
+      "id": "xdefiant",
+      "title": "XDefiant",
+      "cover": "/game-covers/xdefiant.png",
+      "achievements": null
+    }
+  ]
+}

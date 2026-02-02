@@ -1,0 +1,1239 @@
+/* Pokedex 3D CSS - Ported from geoffroy-luchez/Pokedex-CSS */
+
+:root {
+    /* Couleurs principales */
+    --couleur-fond: #CCC;
+    --couleur-principale: #dc0a2d;
+    --couleur-principale-assombrie: #D1092B;
+    --couleur-secondaire: #89061c;
+    /* Couleurs des éléments gris clairs */
+    --gris: #dedede;
+    --gris-secondaire: #848585;
+    /* Couleurs de la grande lampe bleue */
+    --bleu-principale: #28aafd;
+    --bleu-secondaire: #035175;
+    /* Couleurs des boutons noirs */
+    --noir-principale: #00312b;
+    --noir-secondaire: #000910;
+}
+
+/* SCENE */
+.pokedex-scene {
+    perspective: 2000px;
+    perspective-origin: 300px 400px;
+    position: relative;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    overflow: visible;
+}
+
+/* GROUPES D'ELEMENTS 3D */
+.groupe-3d {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Partie ouvrante du Pokedex */
+.partie-mobile {
+    transition: all 0.3s ease-out;
+    /* Centre du truc 3D (autour duquel la rotation se fait) */
+    transform-origin: 300px 0px 7px;
+}
+
+/* Ensemble du Pokedex */
+.pokedex {
+    transform: rotateX(60deg) rotateZ(70deg);
+    height: 100%;
+    width: 280px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s ease-out;
+    /* Centre du truc 3D (autour duquel la rotation se fait) */
+    transform-origin: 140px 200px 0px;
+    cursor: pointer;
+}
+
+/* Arrière de la partie principale */
+.partie-principale__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.partie-principale__face--front {
+    transform: rotateY(0deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 470px;
+}
+
+.partie-principale__face--right {
+    transform: rotateY(90deg) translateZ(267.5px);
+    background-color: var(--couleur-secondaire);
+    width: 25px;
+    height: 470px;
+}
+
+.partie-principale__face--back {
+    transform: rotateY(180deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 470px;
+}
+
+.partie-principale__face--left {
+    transform: rotateY(-90deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 25px;
+    height: 470px;
+}
+
+.partie-principale__face--bottom {
+    transform: rotateX(-90deg) translateZ(457.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 25px;
+}
+
+.partie-principale__face--top {
+    transform: rotateX(90deg) translateZ(20px) translateY(8px);
+    background-color: var(--couleur-secondaire);
+    width: 320px;
+    height: 40px;
+}
+
+/* Charnière liant la partie principale et secondaire */
+.charniere__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.charniere__face--top {
+    transform: rotateX(90deg) translateZ(-30px) translateX(280px) translateY(7.57px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.charniere__face--bottom {
+    transform: rotateX(-90deg) translateZ(450px) translateX(280px) translateY(-7.5px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.charniere__face--front {
+    transform: rotateY(0deg) translateZ(27.5px) translateX(292px) translateY(50px);
+    background-color: var(--couleur-principale);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--front-right {
+    transform: rotateY(45deg) translateZ(231.5px) translateX(201px) translateY(50px);
+    background-color: var(--couleur-principale);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--front-left {
+    transform: rotateY(-45deg) translateZ(-181px) translateX(211.5px) translateY(50px);
+    background-color: var(--couleur-secondaire);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--right {
+    transform: rotateY(90deg) translateZ(311.3px) translateX(-8px) translateY(50px);
+    background-color: var(--couleur-principale);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--left {
+    transform: rotateY(-90deg) translateZ(-272px) translateX(8px) translateY(50px);
+    background-color: var(--couleur-secondaire);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--back {
+    transform: rotateY(180deg) translateZ(12.5px) translateX(-292px) translateY(50px);
+    background-color: var(--couleur-secondaire);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--back-right {
+    transform: rotateY(130deg) translateZ(238.1px) translateX(-192px) translateY(50px);
+    background-color: var(--couleur-secondaire);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--back-left {
+    transform: rotateY(-133deg) translateZ(-198.9px) translateX(-194px) translateY(50px);
+    background-color: var(--couleur-secondaire);
+    width: 16.57px;
+    height: 420px;
+}
+
+/* Bloc supérieur du boitier principal */
+.boitier-superieur__face {
+    position: absolute;
+}
+
+.boitier-superieur__face--front {
+    transform: rotateY(0deg) translateZ(27.5px);
+    background-color: #D1092B;
+    width: 320px;
+    height: 100px;
+    clip-path: polygon(34% 100%, 50% 50%, 100% 50%, 100% 0, 0 0, 0 100%);
+}
+
+.boitier-superieur__face--left {
+    transform: rotateY(-90deg) translateZ(7.3px) translateX(20.4px);
+    background-color: var(--couleur-secondaire);
+    width: 15px;
+    height: 100px;
+}
+
+.boitier-superieur__face--right {
+    transform: rotateY(90deg) translateZ(300px) translateX(-7px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 50px;
+}
+
+.boitier-superieur__face--back {
+    transform: rotateY(180deg) translateZ(12.5px) translateX(-279.8px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 50px;
+}
+
+.boitier-superieur__face--bottom-right {
+    transform: rotateX(90deg) translateZ(-30px) translateY(8px) translateX(159px);
+    background-color: var(--couleur-secondaire);
+    width: 161.3px;
+    height: 40px;
+}
+
+.boitier-superieur__face--bottom-center {
+    transform: rotateX(90deg) rotateY(-45deg) translateZ(-117px) translateY(20px) translateX(21.4px);
+    background-color: var(--couleur-secondaire);
+    width: 72px;
+    height: 15px;
+}
+
+.boitier-superieur__face--bottom-left {
+    transform: rotateX(90deg) translateZ(-92.5px) translateY(20px) translateX(0px);
+    background-color: var(--couleur-secondaire);
+    width: 109px;
+    height: 15px;
+}
+
+/* Lampe Bleue */
+.lampe-bleue__face {
+    position: absolute;
+}
+
+.lampe-bleue__face--front {
+    transform: translateX(42px) translateY(42px) translateZ(42.5px) rotateY(0deg);
+    background-color: var(--bleu-principale);
+    width: 20px;
+    height: 20px;
+}
+
+.lampe-bleue__face--top {
+    transform: translateX(42px) translateY(24px) translateZ(35px) rotateY(0deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--bottom {
+    transform: translateX(42px) translateY(58.9px) translateZ(35px) rotateY(180deg) rotateX(45deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--left {
+    transform: translateX(24.5px) translateY(41.5px) translateZ(35px) rotateZ(-90deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--right {
+    transform: translateX(59.5px) translateY(41.5px) translateZ(35px) rotateZ(90deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--top-left {
+    transform: translateX(27.8px) translateY(29.2px) translateZ(35px) rotateX(-90deg) rotateY(45deg) rotateX(-35deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 21.21px;
+    height: 18.4px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.lampe-bleue__face--top-right {
+    transform: translateX(55px) translateY(29.2px) translateZ(35px) rotateX(-90deg) rotateY(-45deg) rotateX(-35deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 21.21px;
+    height: 18.4px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.lampe-bleue__face--bottom-left {
+    transform: translateX(27.8px) translateY(56.6px) translateZ(35px) rotateX(-90deg) rotateY(135deg) rotateX(-35deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 21.21px;
+    height: 18.4px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.lampe-bleue__face--bottom-right {
+    transform: translateX(55px) translateY(56.6px) translateZ(35px) rotateX(-90deg) rotateY(-135deg) rotateX(-35deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 21.21px;
+    height: 18.4px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Partie secondaire */
+.partie-secondaire__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.partie-secondaire__face--front {
+    transform: rotateY(0deg) translateZ(27.5px) translateY(52px);
+    background-color: var(--couleur-principale);
+    width: 289px;
+    height: 418px;
+    clip-path: polygon(0 100%, 0 12%, 38% 12%, 55.5% 0, 100% 0, 100% 100%);
+}
+
+.partie-secondaire__face--back {
+    transform: rotateY(180deg) translateZ(-15px) translateY(52px);
+    background-color: var(--couleur-secondaire);
+    width: 289px;
+    height: 418px;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 12%, 62% 12%, 44% 0);
+}
+
+.partie-secondaire__face--right {
+    transform: rotateY(90deg) translateZ(281px) translateX(-21px) translateY(52px);
+    background-color: var(--couleur-secondaire);
+    width: 14px;
+    height: 418px;
+}
+
+.partie-secondaire__face--left {
+    transform: rotateY(-90deg) translateZ(7px) translateX(21px) translateY(102px);
+    background-color: var(--couleur-secondaire);
+    width: 14px;
+    height: 368px;
+}
+
+.partie-secondaire__face--bottom {
+    transform: rotateX(-90deg) translateY(-20.5px) translateZ(462.5px);
+    background-color: var(--couleur-secondaire);
+    width: 289px;
+    height: 14px;
+}
+
+.partie-secondaire__face--top-right {
+    transform: rotateX(90deg) translateZ(-45.6px) translateY(20px) translateX(160px);
+    background-color: var(--couleur-secondaire);
+    width: 129px;
+    height: 14px;
+}
+
+.partie-secondaire__face--top-left {
+    transform: rotateX(90deg) translateZ(-95px) translateY(20px) translateX(0px);
+    background-color: var(--couleur-secondaire);
+    width: 111px;
+    height: 15px;
+}
+
+.partie-secondaire__face--top-center {
+    transform: rotateX(90deg) rotateY(-45deg) translateZ(-120px) translateY(20px) translateX(21.4px);
+    background-color: var(--couleur-secondaire);
+    width: 71px;
+    height: 15px;
+}
+
+/* Partie blanche contenant l'écran */
+.partie-blanche__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.partie-blanche__face--front {
+    transform: rotateY(0deg) translateX(30px) translateY(130px) translateZ(24px);
+    background-color: var(--gris-secondaire);
+    width: 215px;
+    height: 190px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+}
+
+.partie-blanche__face--left {
+    transform: rotateY(90deg) translateX(-18px) translateY(130px) translateZ(26px);
+    background-color: var(--gris-secondaire);
+    width: 10px;
+    height: 161.5px;
+}
+
+.partie-blanche__face--right {
+    transform: rotateY(90deg) translateX(-18px) translateY(129.5px) translateZ(240px);
+    background-color: var(--gris-secondaire);
+    width: 10px;
+    height: 190px;
+}
+
+.partie-blanche__face--top {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(133px) translateZ(-22.5px);
+    background-color: var(--gris-secondaire);
+    width: 10px;
+    height: 215px;
+}
+
+.partie-blanche__face--bottom {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(149px) translateZ(-227.8px);
+    background-color: var(--gris-secondaire);
+    width: 10px;
+    height: 183px;
+}
+
+.partie-blanche__face--bottom-right {
+    transform: rotateY(90deg) translateX(-18px) translateY(284px) translateZ(42px) rotateX(48.5deg);
+    background-color: var(--gris-secondaire);
+    width: 10px;
+    height: 42.5px;
+}
+
+/* Bouton noir sur la partie principale */
+.btn-noir__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+.btn-noir__face--front {
+    transform: translateX(31px) translateY(130px) translateZ(14.5px) rotateY(180deg);
+    width: 35px;
+    height: 35px;
+    background-color: var(--noir-principale);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.btn-noir__face--right {
+    transform: rotateY(90deg) translateX(-10px) translateY(141px) translateZ(60.5px);
+    width: 10px;
+    height: 14px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--left {
+    transform: rotateY(90deg) translateX(-10px) translateY(140.5px) translateZ(26px);
+    width: 10px;
+    height: 14px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--top {
+    transform: rotateY(90deg) translateX(-10px) rotateX(90deg) translateY(43.5px) translateZ(-123px);
+    width: 10px;
+    height: 14px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--top-right {
+    transform: rotateY(90deg) translateX(-10px) translateY(127.5px) translateZ(55px) rotateX(45deg);
+    width: 10px;
+    height: 15px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--top-left {
+    transform: rotateY(90deg) translateX(-10px) translateY(127.5px) translateZ(31.5px) rotateX(-45deg);
+    width: 10px;
+    height: 15px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--bottom {
+    transform: rotateY(90deg) translateX(-10px) rotateX(90deg) translateY(43.5px) translateZ(-158px);
+    width: 10px;
+    height: 14px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--bottom-right {
+    transform: rotateY(90deg) translateX(-10px) translateY(152.5px) translateZ(55px) rotateX(-45deg);
+    width: 10px;
+    height: 15px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir__face--bottom-left {
+    transform: rotateY(90deg) translateX(-10px) translateY(152.5px) translateZ(31.5px) rotateX(45deg);
+    width: 10px;
+    height: 15px;
+    background-color: var(--noir-secondaire);
+}
+
+.btn-noir {
+    transform: translateY(220px) translateX(-10px) translateZ(8px);
+}
+
+/* Joystick */
+.joystick__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.joystick__face--front {
+    transform: rotateY(0deg) translateZ(23px) translateX(185px) translateY(350px);
+    background-color: var(--noir-principale);
+    width: 75px;
+    height: 75px;
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+}
+
+.joystick__face--left {
+    transform: rotateY(90deg) translateX(-18px) translateY(350px) translateZ(206.5px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 75px;
+}
+
+.joystick__face--right {
+    transform: rotateY(90deg) translateX(-18px) translateY(350px) translateZ(228px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 75px;
+}
+
+.joystick__face--top {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(218px) translateZ(-339px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 75px;
+}
+
+.joystick__face--bottom {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(218px) translateZ(-361px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 75px;
+}
+
+.joystick__face--left-bord {
+    transform: rotateY(90deg) translateX(-18px) translateY(376.5px) translateZ(180px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 22px;
+}
+
+.joystick__face--right-bord {
+    transform: rotateY(90deg) translateX(-18px) translateY(376.5px) translateZ(255px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 22px;
+}
+
+.joystick__face--top-bord {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(217.5px) translateZ(-339px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 22px;
+}
+
+.joystick__face--bottom-bord {
+    transform: rotateY(90deg) rotateX(90deg) translateX(-18px) translateY(217.5px) translateZ(-414px);
+    background-color: var(--noir-secondaire);
+    width: 10px;
+    height: 22px;
+}
+
+/* Boutons bleus de la partie secondaire */
+.bouton-carre {
+    cursor: pointer;
+    transition: transform 0.1s ease-out;
+}
+
+.bouton-carre__face {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.bouton-carre__face--front {
+    transform: translateX(31px) translateY(130px) translateZ(5px) rotateY(180deg);
+    width: 44px;
+    height: 37.5px;
+}
+
+.bouton-carre__face--right {
+    transform: rotateY(90deg) translateX(-10px) translateY(129.5px) translateZ(26px);
+    width: 10px;
+    height: 37.5px;
+}
+
+.bouton-carre__face--left {
+    transform: rotateY(90deg) translateX(-10px) translateY(129.5px) translateZ(70px);
+    width: 10px;
+    height: 37.5px;
+}
+
+.bouton-carre__face--top {
+    transform: rotateY(90deg) translateX(-10px) rotateX(90deg) translateY(48px) translateZ(-107.5px);
+    width: 10px;
+    height: 44px;
+}
+
+.bouton-carre__face--bottom {
+    transform: rotateY(90deg) translateX(-10px) rotateX(90deg) translateY(48px) translateZ(-145px);
+    width: 10px;
+    height: 44px;
+}
+
+.btn-bleu .bouton-carre__face--front {
+    background-color: var(--bleu-principale);
+    border: 0.5px solid var(--bleu-secondaire);
+    box-sizing: border-box;
+}
+
+.btn-bleu .bouton-carre__face--right {
+    background-color: var(--bleu-secondaire);
+}
+
+.btn-bleu .bouton-carre__face--left {
+    background-color: var(--bleu-secondaire);
+}
+
+.btn-bleu .bouton-carre__face--top {
+    background-color: var(--bleu-secondaire);
+}
+
+.btn-bleu .bouton-carre__face--bottom {
+    background-color: var(--bleu-secondaire);
+}
+
+.bouton-carre-1 {
+    transform: translateY(95px) translateX(174px);
+}
+
+.bouton-carre-2 {
+    transform: translateY(95px) translateX(130px);
+}
+
+.bouton-carre-3 {
+    transform: translateY(95px) translateX(86px);
+}
+
+.bouton-carre-4 {
+    transform: translateY(95px) translateX(42px);
+}
+
+.bouton-carre-5 {
+    transform: translateY(95px) translateX(-2px);
+}
+
+.bouton-carre-6 {
+    transform: translateY(132.5px) translateX(174px);
+}
+
+.bouton-carre-7 {
+    transform: translateY(132.5px) translateX(130px);
+}
+
+.bouton-carre-8 {
+    transform: translateY(132.5px) translateX(86px);
+}
+
+.bouton-carre-9 {
+    transform: translateY(132.5px) translateX(42px);
+}
+
+.bouton-carre-10 {
+    transform: translateY(132.5px) translateX(-2px);
+}
+
+.btn-blanc .bouton-carre__face--front {
+    background-color: var(--gris);
+    border: 0.5px solid var(--gris-secondaire);
+    box-sizing: border-box;
+}
+
+.btn-blanc .bouton-carre__face--right {
+    background-color: var(--gris-secondaire);
+}
+
+.btn-blanc .bouton-carre__face--left {
+    background-color: var(--gris-secondaire);
+}
+
+.btn-blanc .bouton-carre__face--top {
+    background-color: var(--gris-secondaire);
+}
+
+.btn-blanc .bouton-carre__face--bottom {
+    background-color: var(--gris-secondaire);
+}
+
+.bouton-carre-11 {
+    transform: translateY(205.5px) translateX(174px);
+}
+
+.bouton-carre-12 {
+    transform: translateY(205.5px) translateX(130px);
+}
+
+/* ---------------------------
+   ELEMENTS DE DETAIL (Non 3D)
+   --------------------------- */
+/* LEDs du haut du boitier */
+.boitier-superieur__face--front .gris {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: var(--gris);
+    margin-left: 15px;
+    margin-top: 15px;
+    border: 2px solid var(--couleur-secondaire);
+}
+
+.boitier-superieur__face--front .rouge {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-image: url("/pokedex/led_rouge.png");
+    margin-left: 10px;
+    margin-top: 20px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+.boitier-superieur__face--front .jaune {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-image: url("/pokedex/led_jaune.png");
+    margin-left: 15px;
+    margin-top: 20px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+.boitier-superieur__face--front .vert {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-image: url("/pokedex/led_verte.png");
+    margin-left: 10px;
+    margin-top: 20px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+/* Elements sur le clapet fermé */
+.partie-secondaire__face--front .triangle {
+    flex-basis: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    background-color: #ffc300;
+    width: 24px;
+    height: 44px;
+    margin-top: 200px;
+    margin-left: 10px;
+}
+
+.partie-secondaire__face--front .relief {
+    width: 150px;
+    height: 10px;
+    margin-top: 120px;
+    border-radius: 7.5px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+/* Elements sur le Pokédex ouvert */
+.partie-secondaire__face--back .relief {
+    background-color: var(--couleur-secondaire);
+    width: 268px;
+    height: 405px;
+    margin-top: 5px;
+    margin-left: 13px;
+    clip-path: polygon(0 0, 42% 0, 60% 12%, 100% 12%, 100% 100%, 0 100%);
+    padding: 2px;
+}
+
+.partie-secondaire__face--back .relief .relief-interieur {
+    transition: all 0.3s ease-out;
+    background-color: var(--couleur-secondaire);
+    width: 268px;
+    height: 405px;
+    clip-path: polygon(0 0, 42% 0, 60% 12%, 100% 12%, 100% 100%, 0 100%);
+    display: flex;
+}
+
+.partie-principale__face--front .relief {
+    background-color: var(--couleur-secondaire);
+    width: 265px;
+    height: 405px;
+    margin-top: 55px;
+    margin-left: 5px;
+    clip-path: polygon(0 100%, 0 12.5%, 39% 12.5%, 58% 0, 100% 0, 100% 100%);
+    padding: 2px;
+}
+
+.partie-principale__face--front .relief .relief-interieur {
+    transition: all 0.3s ease-out;
+    background-color: var(--couleur-secondaire);
+    width: 265px;
+    height: 405px;
+    clip-path: polygon(0 100%, 0 12.5%, 39% 12.5%, 58% 0, 100% 0, 100% 100%);
+    display: flex;
+}
+
+.partie-principale__face--front .conteneur {
+    margin-top: 285px;
+    margin-left: 70px;
+}
+
+.partie-secondaire__face--back .conteneur {
+    margin-top: 100px;
+    margin-right: 23px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.partie-blanche__face--front .conteneur {
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.partie-principale__face--front .led-rouge {
+    background-color: #cc0000;
+    height: 5px;
+    width: 35px;
+    border: 1px solid var(--couleur-secondaire);
+    border-radius: 5px;
+}
+
+.partie-principale__face--front .led-bleue {
+    background-color: #048ac8;
+    height: 5px;
+    width: 35px;
+    border: 1px solid var(--couleur-secondaire);
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.partie-secondaire__face--back .truc-noir {
+    background-color: var(--noir-secondaire);
+    height: 5px;
+    width: 35px;
+    border: 1px solid var(--couleur-secondaire);
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.partie-secondaire__face--back .voyant-jaune {
+    height: 25px;
+    width: 25px;
+    border: 1px solid var(--couleur-secondaire);
+    margin-top: 30px;
+    border-radius: 50%;
+    background-image: url("/pokedex/led_jaune.png");
+    background-size: 100%;
+}
+
+.partie-blanche__face--front .led-rouge {
+    background-color: #cc0000;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    margin: 11px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+.partie-blanche__face--front .voyant-rouge {
+    background-color: #cc0000;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin: 8px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+.partie-blanche__face--front .ligne {
+    background-color: black;
+    height: 1px;
+    width: 19px;
+    margin-top: 5px;
+    box-shadow: 0px 0px 4px 0.1px rgba(0, 0, 0, 0.5);
+}
+
+/* Ecrans */
+.partie-blanche__face--front .ecran {
+    box-shadow: inset 0 0 1rem black;
+    filter: grayscale(100%);
+    overflow: hidden;
+    height: 130px;
+    width: 155px;
+    margin-top: 0px;
+    margin-left: 30px;
+    background-color: #232323;
+    border-radius: 5px;
+}
+
+.partie-secondaire__face--back .ecran {
+    box-shadow: inset 0 0 1rem black;
+    filter: grayscale(100%);
+    overflow: hidden;
+    height: 75px;
+    width: 220px;
+    margin-top: 73px;
+    margin-left: 25px;
+    background-color: #232323;
+    border-radius: 5px;
+}
+
+.partie-secondaire__face--back .petit-ecran {
+    box-shadow: inset 0 0 1rem black;
+    filter: grayscale(100%);
+    overflow: hidden;
+    height: 35px;
+    width: 96px;
+    margin-top: 35px;
+    margin-left: 27px;
+    background-color: #232323;
+    border-radius: 5px;
+}
+
+.partie-principale__face--front .ecran-vert {
+    box-shadow: inset 0 0 0.6rem #101010;
+    overflow: hidden;
+    height: 50px;
+    width: 80px;
+    margin-top: 20px;
+    background-color: #51ae5f;
+    border-radius: 5px;
+}
+
+.ecran,
+.petit-ecran,
+.ecran-vert {
+    color: white;
+    font-family: Inconsolata, monospace;
+}
+
+.ecran>*,
+.petit-ecran>*,
+.ecran-vert>* {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.ecran-secondaire img {
+    margin-left: 5px;
+    height: 15px;
+    position: absolute;
+    filter: brightness(0) invert(1);
+}
+
+/* Joystick interactif */
+.joystick__face--front .joystick-cliquable--top {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    margin-top: 0px;
+    margin-left: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.joystick__face--front .joystick-cliquable--bottom {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    margin-top: 50px;
+    margin-left: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.joystick__face--front .joystick-cliquable--left {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    margin-top: 25px;
+    margin-left: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.joystick__face--front .joystick-cliquable--right {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    margin-top: 25px;
+    margin-left: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Icônes et trucs cliquables */
+.bouton-carre__face a,
+.bouton-carre__face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bouton-carre__face img:hover {
+    filter: drop-shadow(0px 0px 5px white);
+}
+
+.joystick__face>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.joystick__face>div:hover>div {
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px white;
+}
+
+.btn-noir__face--front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-noir:hover .btn-noir__face--front div {
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px white;
+}
+
+/* ----------------------------------------------
+   Ouverture du Pokédex (avec la classe "ouvert")
+   ---------------------------------------------- */
+.pokedex.ouvert .partie-mobile {
+    transform: rotateY(150deg);
+}
+
+.pokedex.ouvert .charniere__face--left,
+.pokedex.ouvert .charniere__face--back,
+.pokedex.ouvert .charniere__face--back-left,
+.pokedex.ouvert .charniere__face--back-right {
+    background-color: var(--couleur-principale-assombrie);
+}
+
+.pokedex.ouvert .partie-blanche__face--front {
+    background-color: var(--gris);
+}
+
+.pokedex.ouvert .partie-principale__face--front,
+.pokedex.ouvert .partie-secondaire__face--back,
+.pokedex.ouvert .partie-secondaire__face--back .relief .relief-interieur,
+.pokedex.ouvert .partie-principale__face--front .relief .relief-interieur {
+    background-color: var(--couleur-principale);
+}
+
+.pokedex.ouvert {
+    transform: rotateY(30deg) rotateX(15deg);
+}
+
+.pokedex.ouvert .partie-principale__face--back {
+    box-shadow: none;
+}
+
+/* Bouton enfoncé - when btn-enfonce is applied directly to bouton-carre */
+.bouton-carre.btn-enfonce {
+    transform: translateZ(-5px);
+}
+
+/* Position-specific transforms with press effect */
+.bouton-carre-1.btn-enfonce {
+    transform: translateY(95px) translateX(174px) translateZ(-5px);
+}
+
+.bouton-carre-2.btn-enfonce {
+    transform: translateY(95px) translateX(130px) translateZ(-5px);
+}
+
+.bouton-carre-3.btn-enfonce {
+    transform: translateY(95px) translateX(86px) translateZ(-5px);
+}
+
+.bouton-carre-4.btn-enfonce {
+    transform: translateY(95px) translateX(42px) translateZ(-5px);
+}
+
+.bouton-carre-5.btn-enfonce {
+    transform: translateY(95px) translateX(-2px) translateZ(-5px);
+}
+
+.bouton-carre-6.btn-enfonce {
+    transform: translateY(132.5px) translateX(174px) translateZ(-5px);
+}
+
+.bouton-carre-7.btn-enfonce {
+    transform: translateY(132.5px) translateX(130px) translateZ(-5px);
+}
+
+.bouton-carre-8.btn-enfonce {
+    transform: translateY(132.5px) translateX(86px) translateZ(-5px);
+}
+
+.bouton-carre-9.btn-enfonce {
+    transform: translateY(132.5px) translateX(42px) translateZ(-5px);
+}
+
+.bouton-carre-10.btn-enfonce {
+    transform: translateY(132.5px) translateX(-2px) translateZ(-5px);
+}
+
+.bouton-carre-11.btn-enfonce {
+    transform: translateY(205.5px) translateX(174px) translateZ(-5px);
+}
+
+.bouton-carre-12.btn-enfonce {
+    transform: translateY(205.5px) translateX(130px) translateZ(-5px);
+}
+
+.btn-noir .btn-enfonce {
+    transform: translateZ(-7px);
+}
+
+/* -------
+   Flexbox
+   ------- */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-gauche {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Camera rotation - Left view */
+.pokedex.ouvert-gauche {
+    transform: rotateY(60deg) rotateX(15deg);
+}
+
+/* Camera rotation - Right view */
+.pokedex.ouvert-droite {
+    transform: rotateY(5deg) rotateX(15deg);
+}
+
+/* LED glow effects */
+.led-rouge.allume {
+    animation: led-blink-red 1s infinite;
+    box-shadow: 0 0 10px 3px #ff6666;
+}
+
+.led-bleue.allume {
+    animation: led-glow-blue 0.5s infinite alternate;
+    box-shadow: 0 0 15px 5px #4dc3ff;
+}
+
+.rouge.led-allume {
+    box-shadow: 0 0 10px 3px #ff6666 !important;
+}
+
+.vert.led-allume {
+    box-shadow: 0 0 10px 3px #66ff66 !important;
+}
+
+@keyframes led-blink-red {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px 3px #ff6666;
+    }
+
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 5px 2px #ff6666;
+    }
+}
+
+@keyframes led-glow-blue {
+    0% {
+        box-shadow: 0 0 10px 3px #4dc3ff;
+    }
+
+    100% {
+        box-shadow: 0 0 20px 8px #4dc3ff;
+    }
+}
+
+/* Joystick tilt animations */
+.joystick.joystick-angle-top,
+.joystick.joystick-angle-up {
+    transform: rotateX(-10deg);
+}
+
+.joystick.joystick-angle-bottom,
+.joystick.joystick-angle-down {
+    transform: rotateX(10deg);
+}
+
+.joystick.joystick-angle-left {
+    transform: rotateY(-10deg);
+}
+
+.joystick.joystick-angle-right {
+    transform: rotateY(10deg);
+}
+
+/* Button hover glow effect */
+.bouton-carre:hover .bouton-carre__face--front {
+    filter: brightness(1.2);
+}
+
+.bouton-carre:active .bouton-carre__face--front {
+    filter: brightness(0.9);
+}
+
+/* Smooth transitions */
+.led-rouge,
+.led-bleue,
+.rouge,
+.vert {
+    transition: box-shadow 0.3s ease;
+}
+
+.joystick {
+    transition: transform 0.15s ease-out;
+}

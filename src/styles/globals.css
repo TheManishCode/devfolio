@@ -1,0 +1,402 @@
+/* =============================================================================
+   GLOBAL STYLES - Victor Eke Inspired Theme
+   =============================================================================
+   
+   Design system inspired by victoreke.com:
+   - Primary accent: Emerald Green (#33E092)
+   - Dark mode: Zinc-900 backgrounds with noise texture
+   - Light mode: Soft off-white backgrounds
+   ============================================================================= */
+
+@import "tailwindcss";
+
+/* =============================================================================
+   LENIS SMOOTH SCROLL STYLES - Premium Experience
+   ============================================================================= */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+/* Disable overscroll bounce for premium feel */
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    overscroll-behavior-y: none;
+}
+
+/* Optimize rendering during scroll */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Note: Removed blanket GPU acceleration - use will-change sparingly on specific animated elements */
+
+/* =============================================================================
+   TAILWIND V4 DARK MODE CONFIG
+   ============================================================================= */
+
+@variant dark (&:where(.dark, .dark *));
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background-image: url('/noise.png');
+    background-size: 200px 200px;
+    background-position: 0 0;
+}
+
+/* Default (light mode) body colors */
+body {
+    background-color: #e8e8ec;
+    color: #27272a;
+}
+
+/* Dark mode body colors */
+.dark body {
+    background-color: #18181b;
+    color: #fafafa;
+}
+
+/* =============================================================================
+   TYPOGRAPHY
+   ============================================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: #18181b;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+    color: #fafafa;
+}
+
+h1 {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    line-height: 1.625;
+    color: #52525b;
+}
+
+.dark p {
+    color: #a1a1aa;
+}
+
+/* =============================================================================
+   LINKS
+   ============================================================================= */
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* =============================================================================
+   LAYOUT
+   ============================================================================= */
+
+.container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+/* =============================================================================
+   ANIMATIONS
+   ============================================================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 150ms ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s ease-out both;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out both;
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+/* =============================================================================
+   MARQUEE ANIMATION
+   ============================================================================= */
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+
+@keyframes marquee-vertical {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-100% - var(--gap)));
+    }
+}
+
+.animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+}
+
+.animate-marquee-reverse {
+    animation: marquee-reverse var(--duration) linear infinite;
+}
+
+@keyframes marquee-reverse {
+    from {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+}
+
+/* =============================================================================
+   SCROLLBAR
+   ============================================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #27272a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+}
+
+/* =============================================================================
+   SELECTION
+   ============================================================================= */
+
+::selection {
+    background-color: #33E092;
+    color: #18181b;
+}
+
+/* =============================================================================
+   STYLIZED TYPOGRAPHY - Victor Eke Style (Incognito Font)
+   ============================================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--incognito), "Inter", sans-serif;
+}
+
+.font-incognito {
+    font-family: var(--incognito), "Inter", sans-serif;
+}
+
+/* =============================================================================
+   COLOPHON STYLING COMPATIBILITY
+   ============================================================================= */
+
+/* 1. GitHub Stats Images (Profile Page) */
+/* Apply card styles ONLY to specific stats widgets (Summary Cards & Streak Stats) */
+.prose img[src*="github-profile-summary-cards"],
+.prose img[src*="github-readme-streak-stats"] {
+    @apply rounded-xl border border-zinc-200 dark:border-zinc-800 transition-all duration-300;
+    background-color: transparent !important;
+}
+
+.prose img[src*="github-profile-summary-cards"]:hover,
+.prose img[src*="github-readme-streak-stats"]:hover {
+    @apply border-[#33E092]/50 -translate-y-1 transform;
+}
+
+/* 2. Arsenal Grid (Injected via Regex in renderMarkdown) */
+.arsenal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .arsenal-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .arsenal-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+/* Target the links wrapping the icons */
+.arsenal-grid a {
+    @apply flex flex-col items-center justify-center p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-transparent transition-all duration-300;
+    text-decoration: none !important;
+}
+
+.arsenal-grid a:hover {
+    @apply border-[#33E092]/50 -translate-y-1 transform;
+}
+
+/* Ensure icons inside scale slightly on hover like Colophon */
+/* Ensure icons inside scale slightly on hover like Colophon */
+.arsenal-grid a img {
+    @apply transition-transform duration-300;
+    border: none !important;
+    /* Remove the border applied by .prose img generic rule */
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+}
+
+.arsenal-grid a:hover img {
+    @apply scale-110;
+}

@@ -1,0 +1,494 @@
+/* Pokedex CSS - Exact clone of geoffroy-luchez */
+
+/* CSS Variables */
+.pokedex-scene {
+    --couleur-principale: #dc0a2d;
+    --couleur-principale-assombrie: #D1092B;
+    --couleur-secondaire: #89061c;
+    --gris: #dedede;
+    --gris-secondaire: #848585;
+    --bleu-principale: #28aafd;
+    --bleu-secondaire: #035175;
+    --noir-principale: #00312b;
+    --noir-secondaire: #000910;
+}
+
+/* Scene Container */
+.pokedex-scene {
+    perspective: 3000px;
+    perspective-origin: 300px 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 550px;
+}
+
+/* 3D Group */
+.pokedex-groupe-3d {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Main Pokedex Container */
+.pokedex {
+    transform: rotateX(60deg) rotateZ(70deg) translateZ(0px) translateX(50px) translateY(-200px);
+    height: 100%;
+    width: 280px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1s ease-out;
+    transform-origin: 140px 0px 0px;
+    cursor: pointer;
+}
+
+/* Partie Principale (Main Body) Faces */
+.partie-principale__face {
+    position: absolute;
+    transition: all 1s ease-out;
+}
+
+.partie-principale__face--front {
+    transform: rotateY(0deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 470px;
+}
+
+.partie-principale__face--right {
+    transform: rotateY(90deg) translateZ(267.5px);
+    background-color: var(--couleur-secondaire);
+    width: 25px;
+    height: 470px;
+}
+
+.partie-principale__face--back {
+    transform: rotateY(180deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 470px;
+}
+
+.partie-principale__face--left {
+    transform: rotateY(-90deg) translateZ(12.5px);
+    background-color: var(--couleur-secondaire);
+    width: 25px;
+    height: 470px;
+}
+
+.partie-principale__face--bottom {
+    transform: rotateX(-90deg) translateZ(457.5px);
+    background-color: var(--couleur-secondaire);
+    width: 280px;
+    height: 25px;
+}
+
+.partie-principale__face--top {
+    transform: rotateX(90deg) translateZ(20px) translateY(8px);
+    background-color: var(--couleur-secondaire);
+    width: 320px;
+    height: 40px;
+}
+
+/* Boitier Superieur (Top Section with LEDs) */
+.boitier-superieur__face {
+    position: absolute;
+}
+
+.boitier-superieur__face--front {
+    transform: rotateY(0deg) translateZ(27.5px);
+    background-color: #D1092B;
+    width: 320px;
+    height: 100px;
+    clip-path: polygon(34% 100%, 50% 50%, 100% 50%, 100% 0, 0 0, 0 100%);
+}
+
+/* Blue Lamp */
+.lampe-bleue__face {
+    position: absolute;
+}
+
+.lampe-bleue__face--front {
+    transform: translateX(42px) translateY(42px) translateZ(42.5px) rotateY(0deg);
+    background-color: var(--bleu-principale);
+    width: 20px;
+    height: 20px;
+}
+
+.lampe-bleue__face--top {
+    transform: translateX(42px) translateY(24px) translateZ(35px) rotateY(0deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--bottom {
+    transform: translateX(42px) translateY(58.9px) translateZ(35px) rotateY(180deg) rotateX(45deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--left {
+    transform: translateX(24.5px) translateY(41.5px) translateZ(35px) rotateZ(-90deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+.lampe-bleue__face--right {
+    transform: translateX(59.5px) translateY(41.5px) translateZ(35px) rotateZ(90deg) rotateX(45deg) rotateZ(180deg);
+    background: linear-gradient(var(--bleu-principale), var(--bleu-secondaire));
+    width: 20px;
+    height: 21.21px;
+}
+
+/* LED Colors */
+.boitier-leds {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.boitier-leds .gris {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: var(--gris);
+    border: 2px solid var(--couleur-secondaire);
+}
+
+.boitier-leds .led {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-left: 10px;
+    margin-top: 30px;
+    border: 1px solid var(--couleur-secondaire);
+}
+
+.boitier-leds .led--rouge {
+    background-color: #cc0000;
+}
+
+.boitier-leds .led--rouge.active {
+    background-color: #ff9999;
+    box-shadow: 0 0 10px #ff9999;
+}
+
+.boitier-leds .led--jaune {
+    background-color: #d1a300;
+}
+
+.boitier-leds .led--vert {
+    background-color: #00cc00;
+}
+
+.boitier-leds .led--vert.active {
+    background-color: #99ff99;
+    box-shadow: 0 0 10px #99ff99;
+}
+
+/* Partie Blanche (White Screen Area) */
+.partie-blanche__face {
+    position: absolute;
+    transition: all 1s ease-out;
+}
+
+.partie-blanche__face--front {
+    transform: rotateY(0deg) translateX(30px) translateY(130px) translateZ(24px);
+    background-color: var(--gris-secondaire);
+    width: 215px;
+    height: 190px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+}
+
+/* Main Screen */
+.ecran-principal {
+    box-shadow: inset 0 0 1rem black;
+    overflow: hidden;
+    height: 130px;
+    width: 155px;
+    margin-top: 0px;
+    margin-left: 30px;
+    background-color: #232323;
+    border-radius: 5px;
+}
+
+.ecran-principal .ecran-content {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #064e3b, #022c22);
+    color: #4ade80;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Green Small Screen */
+.ecran-vert {
+    box-shadow: inset 0 0 0.6rem #101010;
+    overflow: hidden;
+    height: 50px;
+    width: 80px;
+    margin-top: 20px;
+    background-color: #51ae5f;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+/* Relief Decoration */
+.relief-principale {
+    background-color: var(--couleur-secondaire);
+    width: 265px;
+    height: 405px;
+    margin-top: 55px;
+    margin-left: 5px;
+    clip-path: polygon(0 100%, 0 12.5%, 39% 12.5%, 58% 0, 100% 0, 100% 100%);
+    padding: 2px;
+}
+
+.relief-interieur-principale {
+    transition: all 1s ease-out;
+    background-color: var(--couleur-secondaire);
+    width: 265px;
+    height: 405px;
+    clip-path: polygon(0 100%, 0 12.5%, 39% 12.5%, 58% 0, 100% 0, 100% 100%);
+    display: flex;
+}
+
+/* LEDs on main body */
+.led-horizontale {
+    height: 5px;
+    width: 35px;
+    border: 1px solid var(--couleur-secondaire);
+    border-radius: 5px;
+}
+
+.led-horizontale--rouge {
+    background-color: #cc0000;
+}
+
+.led-horizontale--bleue {
+    background-color: #048ac8;
+    margin-left: 20px;
+}
+
+/* Small decorative lines */
+.ligne-decorative {
+    background-color: black;
+    height: 1px;
+    width: 19px;
+    margin-top: 5px;
+    box-shadow: 0px 0px 4px 0.1px rgba(0, 0, 0, 0.5);
+}
+
+/* Partie Mobile (Flip Cover) */
+.partie-mobile {
+    transition: all 1s ease-out;
+    transform-origin: 300px 0px 7px;
+}
+
+/* Charniere (Hinge) */
+.charniere__face {
+    position: absolute;
+    transition: all 1s ease-out;
+}
+
+.charniere__face--front {
+    transform: rotateY(0deg) translateZ(27.5px) translateX(292px) translateY(50px);
+    background-color: var(--couleur-principale);
+    width: 16.57px;
+    height: 420px;
+}
+
+.charniere__face--top {
+    transform: rotateX(90deg) translateZ(-30px) translateX(280px) translateY(7.57px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.charniere__face--bottom {
+    transform: rotateX(-90deg) translateZ(450px) translateX(280px) translateY(-7.5px);
+    background-color: var(--couleur-secondaire);
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+/* Partie Secondaire (Secondary Panel / Flip Cover) */
+.partie-secondaire__face {
+    position: absolute;
+    transition: all 1s ease-out;
+}
+
+.partie-secondaire__face--front {
+    transform: rotateY(0deg) translateZ(27.5px) translateY(52px);
+    background-color: var(--couleur-principale);
+    width: 289px;
+    height: 418px;
+    clip-path: polygon(0 100%, 0 12%, 38% 12%, 55.5% 0, 100% 0, 100% 100%);
+}
+
+.partie-secondaire__face--back {
+    transform: rotateY(180deg) translateZ(-15px) translateY(52px);
+    background-color: var(--couleur-secondaire);
+    width: 289px;
+    height: 418px;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 12%, 62% 12%, 44% 0);
+}
+
+.partie-secondaire__face--right {
+    transform: rotateY(90deg) translateZ(281px) translateX(-21px) translateY(52px);
+    background-color: var(--couleur-secondaire);
+    width: 14px;
+    height: 418px;
+}
+
+.partie-secondaire__face--left {
+    transform: rotateY(-90deg) translateZ(7px) translateX(21px) translateY(102px);
+    background-color: var(--couleur-secondaire);
+    width: 14px;
+    height: 368px;
+}
+
+.partie-secondaire__face--bottom {
+    transform: rotateX(-90deg) translateY(-20.5px) translateZ(462.5px);
+    background-color: var(--couleur-secondaire);
+    width: 289px;
+    height: 14px;
+}
+
+/* Triangle on closed panel */
+.triangle-detail {
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    background-color: #ffc300;
+    width: 24px;
+    height: 44px;
+    margin-top: 200px;
+    margin-left: 10px;
+}
+
+/* Relief on back panel */
+.relief-secondaire {
+    background-color: var(--couleur-secondaire);
+    width: 268px;
+    height: 405px;
+    margin-top: 5px;
+    margin-left: 13px;
+    clip-path: polygon(0 0, 42% 0, 60% 12%, 100% 12%, 100% 100%, 0 100%);
+    padding: 2px;
+}
+
+.relief-interieur-secondaire {
+    transition: all 1s ease-out;
+    background-color: var(--couleur-secondaire);
+    width: 268px;
+    height: 405px;
+    clip-path: polygon(0 0, 42% 0, 60% 12%, 100% 12%, 100% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Secondary Screen */
+.ecran-secondaire {
+    box-shadow: inset 0 0 1rem black;
+    overflow: hidden;
+    height: 75px;
+    width: 220px;
+    margin-top: 73px;
+    margin-left: 25px;
+    background-color: #232323;
+    border-radius: 5px;
+}
+
+.ecran-secondaire-content {
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-family: monospace;
+    font-size: 8px;
+    padding: 6px;
+    overflow-y: auto;
+}
+
+/* Blue Buttons */
+.btn-bleu {
+    background-color: var(--bleu-principale);
+    border: 0.5px solid var(--bleu-secondaire);
+    cursor: pointer;
+}
+
+.btn-bleu:hover {
+    background-color: var(--bleu-secondaire);
+}
+
+/* White Buttons */
+.btn-blanc {
+    background-color: var(--gris);
+    border: 0.5px solid var(--gris-secondaire);
+    cursor: pointer;
+}
+
+.btn-blanc:hover {
+    background-color: var(--gris-secondaire);
+}
+
+/* Joystick/D-Pad */
+.joystick__face {
+    position: absolute;
+    transition: all 1s ease-out;
+}
+
+.joystick__face--front {
+    transform: rotateY(0deg) translateZ(23px) translateX(185px) translateY(350px);
+    background-color: var(--noir-principale);
+    width: 75px;
+    height: 75px;
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+}
+
+/* Open State */
+.pokedex.ouvert {
+    transform: translateY(-200px) translateZ(200px) translateX(-160px) rotateY(30deg) rotateX(10deg) rotateZ(0deg);
+}
+
+.pokedex.ouvert .partie-mobile {
+    transform: rotateY(150deg);
+}
+
+.pokedex.ouvert .partie-principale__face--front,
+.pokedex.ouvert .partie-secondaire__face--back,
+.pokedex.ouvert .relief-interieur-principale,
+.pokedex.ouvert .relief-interieur-secondaire {
+    background-color: var(--couleur-principale);
+}
+
+.pokedex.ouvert .partie-blanche__face--front {
+    background-color: var(--gris);
+}
+
+/* Animations */
+@keyframes pokedex-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.led-animee {
+    animation: pokedex-blink 0.3s infinite;
+}

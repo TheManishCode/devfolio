@@ -1,0 +1,40 @@
+{
+    "certificates": [
+        {
+            "id": "machine-learning-specialization",
+            "title": "Machine Learning Specialization",
+            "image": "machine-learning-specialization.webp",
+            "issuer": "DeepLearning.AI / Stanford Online",
+            "platform": "Coursera",
+            "year": "2025",
+            "verifyUrl": "https://www.coursera.org/account/accomplishments/specialization/certificate/TCEF2K5IPLN6"
+        },
+        {
+            "id": "unsupervised-learning-recommenders-rl",
+            "title": "Unsupervised Learning, Recommenders, Reinforcement Learning",
+            "image": "unsupervised-learning-recommenders-rl.webp",
+            "issuer": "DeepLearning.AI / Stanford University",
+            "platform": "Coursera",
+            "year": "2025",
+            "verifyUrl": "https://www.coursera.org/verify/0KKPTYKNZMKA"
+        },
+        {
+            "id": "introduction-to-devops",
+            "title": "Introduction to DevOps",
+            "image": "introduction-to-devops.webp",
+            "issuer": "IBM",
+            "platform": "Coursera",
+            "year": "2025",
+            "verifyUrl": "https://www.coursera.org/verify/C7RTO5KM0SL"
+        },
+        {
+            "id": "introduction-to-java",
+            "title": "Introduction to Java",
+            "image": "introduction-to-java.webp",
+            "issuer": "LearnQuest",
+            "platform": "Coursera",
+            "year": "2025",
+            "verifyUrl": "https://www.coursera.org/verify/YUALPXVJ6V7W"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    darkMode: "class",
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                // Victor Eke inspired accent colors
+                "primary": "#33E092",
+                "primary-hover": "#0CCE6B",
+                "primary-dark": "#16a34a",
+                // Note: Tailwind v4 includes zinc palette by default
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                mono: ['Fira Code', 'monospace'],
+                incognito: ['var(--incognito)'],
+            },
+            keyframes: {
+                marquee: {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(calc(-100% - var(--gap)))" },
+                },
+                "marquee-reverse": {
+                    from: { transform: "translateX(calc(-100% - var(--gap)))" },
+                    to: { transform: "translateX(0)" },
+                },
+                "marquee-vertical": {
+                    from: { transform: "translateY(0)" },
+                    to: { transform: "translateY(calc(-100% - var(--gap)))" },
+                },
+            },
+            animation: {
+                marquee: "marquee var(--duration) linear infinite",
+                "marquee-reverse": "marquee-reverse var(--duration) linear infinite",
+                "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+            },
+        },
+    },
+    plugins: [],
+};

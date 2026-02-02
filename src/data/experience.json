@@ -1,0 +1,31 @@
+{
+  "experiences": [
+    {
+      "id": "LB01-2026",
+      "role": "AI-Oriented Intern",
+      "company": "LearnersByte",
+      "companyUrl": "https://www.learnersbyte.com",
+      "location": "Hyderabad (Remote)",
+      "startDate": "2026-01-22",
+      "endDate": null,
+      "type": "Internship",
+      "description": "AICTE-approved Bharat Unnati AI Fellowship focused on building future-ready AI skills through hands-on projects.",
+      "responsibilities": [
+        "Building AI Agents and Autonomous workflows",
+        "Working with Generative AI for content creation",
+        "Completing 13 practical projects"
+      ],
+      "technologies": [
+        "Generative AI",
+        "Agentic AI",
+        "AI Frameworks",
+        "Python"
+      ],
+      "period": "Jan 2026 - Present",
+      "duration": "4 Months",
+      "current": true
+    }
+  ],
+  "lastUpdated": "2026-02-03",
+  "linkedInProfile": "https://linkedin.com/in/rixscx"
+}
