@@ -1,0 +1,27 @@
+{
+    "title": "Personal Portfolio v5",
+    "description": "My professional digital garden and portfolio website. Built with Next.js 14, TypeScript, and Tailwind CSS. Features dynamic GitHub integration, real-time Spotify tracking, and a bespoke design system.",
+    "categories": [
+        "creations",
+        "now",
+        "featured"
+    ],
+    "status": "ongoing",
+    "priority": 1,
+    "type": "project",
+    "visibility": true,
+    "tags": [
+        "web-development",
+        "personal-branding",
+        "system-design",
+        "ui-ux"
+    ],
+    "techStack": [
+        "Next.js 14",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GitHub API",
+        "Spotify API"
+    ]
+}
