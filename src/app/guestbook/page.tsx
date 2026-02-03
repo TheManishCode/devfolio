@@ -177,6 +177,8 @@ export default function GuestbookPage() {
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <textarea
+                                        id="guestbook-message"
+                                        aria-label="Guestbook message"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value.slice(0, 200))}
                                         placeholder="Leave a message..."
