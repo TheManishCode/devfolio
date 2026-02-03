@@ -139,30 +139,6 @@ p {
 }
 
 /* =============================================================================
-   FOCUS VISIBLE - Keyboard Accessibility
-   ============================================================================= */
-
-/* Global focus visible styles for keyboard navigation */
-:focus-visible {
-    outline: 2px solid #33E092;
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
-/* Remove default focus styles on mouse click */
-:focus:not(:focus-visible) {
-    outline: none;
-}
-
-/* Buttons and interactive elements */
-button:focus-visible,
-a:focus-visible,
-[role="button"]:focus-visible {
-    outline: 2px solid #33E092;
-    outline-offset: 2px;
-}
-
-/* =============================================================================
    LINKS
    ============================================================================= */
 

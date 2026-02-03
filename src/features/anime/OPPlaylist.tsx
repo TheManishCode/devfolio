@@ -64,7 +64,6 @@ export function OPPlaylist() {
                             <button
                                 key={op.name}
                                 onClick={() => setCurrentTrack(op)}
-                                aria-label={`Play ${op.name} from ${op.anime}`}
                                 className="w-full grid grid-cols-[40px_1fr_auto] md:grid-cols-[40px_1fr_1fr_auto] gap-4 px-4 py-3 items-center transition-all duration-200 group text-left"
                                 style={{
                                     backgroundColor: currentTrack?.youtubeId === op.youtubeId ? 'rgba(239, 68, 68, 0.15)' : hoveredIndex === i ? 'rgba(239, 68, 68, 0.1)' : 'transparent',
