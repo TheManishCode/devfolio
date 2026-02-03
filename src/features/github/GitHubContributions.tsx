@@ -114,6 +114,8 @@ const GitHubContributions = () => {
                         <button
                             key={year}
                             onClick={() => setSelectedYear(year)}
+                            aria-label={`View contributions for ${year}`}
+                            aria-pressed={selectedYear === year}
                             className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${selectedYear === year
                                 ? "bg-[#33E092] text-zinc-900"
                                 : "dark:bg-zinc-800 bg-zinc-400/50 dark:text-zinc-400 text-zinc-600 hover:dark:bg-zinc-700"

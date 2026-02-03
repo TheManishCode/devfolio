@@ -60,6 +60,10 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.className} ${incognito.variable} dark:bg-zinc-900 bg-[#d5d5da] dark:text-zinc-100 text-zinc-800`}>
+                {/* Skip to content link for keyboard navigation */}
+                <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-zinc-900 focus:text-white focus:rounded-md">
+                    Skip to main content
+                </a>
                 <SessionProvider>
                     <ThemeProvider>
                         <SmoothScroll>

@@ -114,10 +114,10 @@ export function GenreUniverse() {
                         ))}
                     </Swiper>
 
-                    <button className="genre-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-md text-[#33E092]">
+                    <button aria-label="Previous genre" className="genre-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-md text-[#33E092]">
                         <FaChevronLeft className="w-5 h-5" />
                     </button>
-                    <button className="genre-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-md text-[#33E092]">
+                    <button aria-label="Next genre" className="genre-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-md text-[#33E092]">
                         <FaChevronRight className="w-5 h-5" />
                     </button>
                 </div>

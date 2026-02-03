@@ -64,7 +64,7 @@ export default async function HomePage() {
     return (
         <>
             {/* Main content container */}
-            <main className="max-w-7xl mx-auto pt-20 lg:pt-28 px-6 sm:px-8 md:px-12 lg:px-16">
+            <main id="main-content" className="max-w-7xl mx-auto pt-20 lg:pt-28 px-6 sm:px-8 md:px-12 lg:px-16">
 
                 <section className="mb-16 relative">
                     <div className="lg:max-w-2xl max-w-2xl animate-slide-up">
