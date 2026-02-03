@@ -2,42 +2,25 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-    const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-
-    // Strict CSP Policy
-    // script-src: 'nonce-...' allows inline scripts safely
-    // strict-dynamic: allows scripts trusted by nonce to load other scripts
-    // unsafe-eval: required by Next.js in development (and some libraries)
+    // Balanced CSP Policy - compatible with Next.js
+    // Using unsafe-inline for scripts/styles to ensure Next.js works properly
     const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'strict-dynamic';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com data:;
     img-src 'self' data: blob: https: http:;
-    connect-src 'self' https: wss:;
+    connect-src 'self' https: wss: http:;
     frame-ancestors 'self';
     base-uri 'self';
     form-action 'self';
     object-src 'none';
-    upgrade-insecure-requests;
     `
-    // Replace newline characters and spaces
     const contentSecurityPolicyHeaderValue = cspHeader
         .replace(/\s{2,}/g, ' ')
         .trim()
 
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('x-nonce', nonce)
-    requestHeaders.set(
-        'Content-Security-Policy',
-        contentSecurityPolicyHeaderValue
-    )
-
-    const response = NextResponse.next({
-        request: {
-            headers: requestHeaders,
-        },
-    })
+    const response = NextResponse.next()
     response.headers.set(
         'Content-Security-Policy',
         contentSecurityPolicyHeaderValue
