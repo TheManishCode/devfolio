@@ -624,8 +624,8 @@ export async function fetchPortfolioProjects(): Promise<PortfolioProject[]> {
                 // CRITICAL: metadata is the source of truth for categories and status
                 return {
                     ...projectModel,
-                    // Use metadata title if provided, otherwise use repo name
-                    name: metadata.title || projectModel.name,
+                    // ALWAYS use repo name as title (ignore project.json title)
+                    name: projectModel.name,
                     // Use metadata description if provided, otherwise use GitHub description
                     description: metadata.description || projectModel.description,
                     // Metadata is authoritative - no inference from GitHub fields
