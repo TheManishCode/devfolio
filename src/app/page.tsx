@@ -38,8 +38,10 @@ interface Experience {
 
 async function getExperienceData() {
     try {
+        // Priority: explicit base URL > Netlify URL > Vercel URL > localhost
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
-            process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
+            process.env.URL ||  // Netlify sets this
+            (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
             'http://localhost:3000'
 
         const res = await fetch(`${baseUrl}/api/experience`, {
