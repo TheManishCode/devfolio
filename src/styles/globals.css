@@ -71,7 +71,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    background-image: url('/noise.png');
+    background-image: url('/noise.webp');
     background-size: 200px 200px;
     background-position: 0 0;
 }
@@ -399,4 +399,35 @@ h4 {
 
 .arsenal-grid a:hover img {
     @apply scale-110;
+}
+
+/* =============================================================================
+   GITHUB PROFILE README STYLING
+   ============================================================================= */
+
+/* Code elements in the README */
+.github-readme-section code {
+    @apply px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-sm;
+}
+
+/* Stats cards styling */
+.github-readme-section img[src*="github-profile-summary-cards"],
+.github-readme-section img[src*="github-readme-streak-stats"],
+.github-readme-section img[src*="komarev.com"] {
+    @apply transition-all duration-300;
+}
+
+.github-readme-section img[src*="github-profile-summary-cards"]:hover,
+.github-readme-section img[src*="github-readme-streak-stats"]:hover {
+    @apply -translate-y-1;
+}
+
+/* Snake animation container */
+.github-readme-section img[src*="github-contribution-grid-snake"] {
+    @apply w-full;
+    filter: brightness(0.95);
+}
+
+.dark .github-readme-section img[src*="github-contribution-grid-snake"] {
+    filter: brightness(1);
 }

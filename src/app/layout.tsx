@@ -23,6 +23,7 @@ import { AnimatedFavicon } from "@/components/ui/AnimatedFavicon"
 import { SmoothScroll } from "@/components/layout/SmoothScroll"
 import { incognito } from "@/assets/fonts/font"
 import { siteConfig } from "@/config/site"
+import { SideUsername } from "@/components/decorative/SideUsername"
 
 import { SessionProvider } from "@/components/providers/SessionProvider"
 
@@ -68,6 +69,7 @@ export default function RootLayout({
                     <ThemeProvider>
                         <SmoothScroll>
                             <AnimatedFavicon />
+                            <SideUsername />
                             <Navbar />
                             {children}
                             <Footer />
