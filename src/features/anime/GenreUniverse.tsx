@@ -29,6 +29,8 @@ function GenreCard({ genre, isActive }: { genre: typeof GENRE_DATA[0]; isActive:
                 alt={genre.name}
                 className="absolute inset-0 w-full h-full object-cover"
                 onError={() => setImgError(true)}
+                loading="lazy"
+                decoding="async"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />

@@ -115,7 +115,7 @@ export default function ConnectPage() {
                     <h2 className="font-incognito text-xl font-semibold dark:text-white text-zinc-900 mb-6">Directory</h2>
                     <div className="grid sm:grid-cols-2 gap-4">
                         {socialLinks.map((link, index) => (
-                            <a key={link.name} href={link.url} target="_blank" className="group p-5 rounded-lg border dark:border-zinc-800 border-zinc-400 dark:bg-zinc-900/10 bg-[#d5d5da] hover:border-zinc-500 dark:hover:border-zinc-600 transition-all animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                            <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="group p-5 rounded-lg border dark:border-zinc-800 border-zinc-400 dark:bg-zinc-900/10 bg-[#d5d5da] hover:border-zinc-500 dark:hover:border-zinc-600 transition-all animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="p-2 rounded-lg dark:bg-zinc-800 bg-[#d5d5da] dark:text-zinc-400 text-zinc-600 group-hover:dark:text-white group-hover:text-zinc-900 transition-colors">{link.icon}</div>
                                     <svg className="w-4 h-4 text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth={2} /></svg>
@@ -142,6 +142,7 @@ export default function ConnectPage() {
                                     {/* LinkedIn OAuth Button */}
                                     <button
                                         onClick={() => triggerAuth("LinkedIn")}
+                                        aria-label="Connect via LinkedIn"
                                         className="group flex items-center gap-3 px-4 py-3.5 rounded-lg border dark:border-zinc-800 border-zinc-400 hover:border-zinc-500 dark:hover:border-zinc-600 hover:bg-zinc-400/30 dark:hover:bg-zinc-900/50 transition-all text-sm font-medium"
                                     >
                                         <div className="p-1.5 rounded-md bg-[#0A66C2]/10">
@@ -156,6 +157,7 @@ export default function ConnectPage() {
                                     {/* GitHub OAuth Button */}
                                     <button
                                         onClick={() => triggerAuth("GitHub")}
+                                        aria-label="Verify via GitHub"
                                         className="group flex items-center gap-3 px-4 py-3.5 rounded-lg border dark:border-zinc-800 border-zinc-400 hover:border-zinc-500 dark:hover:border-zinc-600 hover:bg-zinc-400/30 dark:hover:bg-zinc-900/50 transition-all text-sm font-medium"
                                     >
                                         <div className="p-1.5 rounded-md bg-[#d5d5da] dark:bg-zinc-800">
@@ -257,6 +259,7 @@ export default function ConnectPage() {
                             <a
                                 href="https://buymeacoffee.com/manishp.dev"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFDD00] text-[#0D0C22] font-semibold text-sm hover:bg-[#FFDD00]/90 transition-all"
                             >
                                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

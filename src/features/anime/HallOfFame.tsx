@@ -113,6 +113,7 @@ export default function HallOfFame() {
                             {/* Close button */}
                             <button
                                 onClick={() => setActiveIndex(0)}
+                                aria-label="Close expanded view"
                                 className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-all z-20"
                             >
                                 <FaTimes className="w-4 h-4" />
@@ -196,6 +197,7 @@ export default function HallOfFame() {
                                         {youtubeId && (
                                             <button
                                                 onClick={() => setShowTrailer(true)}
+                                                aria-label="Watch trailer"
                                                 className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white text-sm font-medium hover:bg-white/20 transition-all"
                                             >
                                                 <FaPlay className="w-3 h-3" />
@@ -225,6 +227,7 @@ export default function HallOfFame() {
                                 >
                                     <button
                                         onClick={() => setShowTrailer(false)}
+                                        aria-label="Close trailer"
                                         className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-50"
                                     >
                                         <FaTimes className="w-4 h-4" />
