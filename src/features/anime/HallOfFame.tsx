@@ -179,12 +179,12 @@ export default function HallOfFame() {
                                             {/* Plain icon buttons for OST */}
                                             <div className="flex items-center gap-3 ml-2">
                                                 {activeAnime.ost.spotifyUrl && (
-                                                    <a href={activeAnime.ost.spotifyUrl} target="_blank" rel="noopener noreferrer">
+                                                    <a href={activeAnime.ost.spotifyUrl} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
                                                         <FaSpotify className="w-4 h-4 text-zinc-300 hover:text-[#1DB954] transition-colors" />
                                                     </a>
                                                 )}
                                                 {activeAnime.ost.youtubeUrl && (
-                                                    <a href={activeAnime.ost.youtubeUrl} target="_blank" rel="noopener noreferrer">
+                                                    <a href={activeAnime.ost.youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="Watch on YouTube">
                                                         <FaYoutube className="w-5 h-5 text-zinc-300 hover:text-red-500 transition-colors" />
                                                     </a>
                                                 )}

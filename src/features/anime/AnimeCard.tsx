@@ -85,6 +85,7 @@ export function AnimeCard({ anime, rank }: AnimeCardProps) {
                     )}
                     {anime.malUrl && (
                         <a href={anime.malUrl} target="_blank" rel="noopener noreferrer"
+                            aria-label="View on MyAnimeList"
                             className="flex items-center justify-center w-10 h-9 bg-[#2E51A2] rounded-lg"
                             onClick={e => e.stopPropagation()}>
                             <SiMyanimelist className="w-5 h-5 text-white" />
