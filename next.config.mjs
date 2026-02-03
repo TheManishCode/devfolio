@@ -10,8 +10,10 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: blob: https: http:",
-      "connect-src 'self' https: wss: http:",
+      // img-src: specific CDNs for images
+      "img-src 'self' data: blob: https://cdn.myanimelist.net https://s4.anilist.co https://cdn.cloudflare.steamstatic.com https://images.alphacoders.com https://images6.alphacoders.com https://images.igdb.com https://cdn2.steamgriddb.com https://upload.wikimedia.org https://cdn2.unrealengine.com https://media.rawg.io https://avatars.githubusercontent.com https://i.scdn.co https://store.steampowered.com",
+      // connect-src: APIs used by the site
+      "connect-src 'self' https://api.github.com https://api.wakatime.com https://api.myanimelist.net https://api.spotify.com https://accounts.spotify.com https://alfa-leetcode-api.onrender.com https://www.duolingo.com https://api.steampowered.com https://store.steampowered.com https://api.linkedin.com https://www.linkedin.com https://discord.com wss:",
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",
