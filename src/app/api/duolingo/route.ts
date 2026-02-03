@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getDuolingoStats } from '@/lib/duolingo/server';
 
-// Force dynamic rendering - no static generation
+// Force dynamic rendering - real-time data
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs'; // Use Node.js runtime for better fetch compatibility
+export const fetchCache = 'force-no-store';
+export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -26,10 +27,12 @@ export async function GET(request: Request) {
             );
         }
 
-        // Return with cache headers for CDN
+        // No caching - always fresh data
         return NextResponse.json(stats, {
             headers: {
-                'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1200',
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0',
             },
         });
     } catch (error) {

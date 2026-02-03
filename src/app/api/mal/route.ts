@@ -2,10 +2,11 @@ import { getCompletedAnime, getWatchingAnime, getAnimeStats } from '@/lib/mal/se
 import { NextResponse } from 'next/server';
 
 /**
- * CACHING: 10 minute ISR - Anime lists change infrequently
+ * MAL API Route - Force dynamic rendering for real-time data
  */
 export const dynamic = 'force-dynamic';
-export const revalidate = 600;
+export const fetchCache = 'force-no-store';
+export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -15,6 +16,7 @@ export async function GET(request: Request) {
     const username = process.env.MAL_USERNAME;
 
     if (!clientId || !username) {
+        console.error('MAL credentials missing - clientId:', !!clientId, 'username:', !!username);
         return NextResponse.json(
             { error: 'MAL credentials not configured' },
             { status: 500 }
@@ -31,7 +33,14 @@ export async function GET(request: Request) {
             data = await getCompletedAnime(username, clientId);
         }
 
-        return NextResponse.json(data);
+        // No caching - always fresh data
+        return NextResponse.json(data, {
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0',
+            },
+        });
     } catch (error) {
         console.error('MAL API error:', error);
         return NextResponse.json(
