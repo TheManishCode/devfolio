@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getDuolingoStats } from '@/lib/duolingo/server';
 
+// Force dynamic rendering - no static generation
 export const dynamic = 'force-dynamic';
-export const revalidate = 600; // 10 minutes ISR - Duolingo data doesn't change frequently
+export const runtime = 'nodejs'; // Use Node.js runtime for better fetch compatibility
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -25,7 +26,12 @@ export async function GET(request: Request) {
             );
         }
 
-        return NextResponse.json(stats);
+        // Return with cache headers for CDN
+        return NextResponse.json(stats, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1200',
+            },
+        });
     } catch (error) {
         console.error('Duolingo API error:', error);
         return NextResponse.json(

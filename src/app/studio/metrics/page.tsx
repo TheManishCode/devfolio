@@ -447,8 +447,32 @@ export default function MetricsPage() {
             </div>
           </GridCell>
 
-          {/* Duolingo Language Learning */}
-          <GridCell span={2} minHeight="min-h-[220px]">
+          {/* ROW 4 - Technical Competency (Split into 2 boxes) */}
+          <GridCell span={2} minHeight="min-h-[180px]">
+            <MetricLabel>Academic Focus (VTU)</MetricLabel>
+            <div className="mt-auto">
+              <p className="text-[10px] text-zinc-500 leading-relaxed italic">
+                Core focus: Data Engineering, MLOps, Responsible AI, and NLP.
+              </p>
+            </div>
+          </GridCell>
+
+          <GridCell span={2} minHeight="min-h-[180px]">
+            <div className="flex justify-between items-start">
+              <MetricLabel>Data Governance</MetricLabel>
+              <span className="text-[9px] text-emerald-600 dark:text-emerald-500/50 border border-emerald-600/30 dark:border-emerald-500/20 px-2 py-0.5 uppercase tracking-wider">
+                Certified
+              </span>
+            </div>
+            <div className="mt-auto">
+              <p className="text-[10px] text-zinc-500 leading-relaxed">
+                Synapse professional certification in data privacy and policy management.
+              </p>
+            </div>
+          </GridCell>
+
+          {/* ROW 5 - Language Learning (Full width) */}
+          <GridCell span={4} minHeight="min-h-[200px]">
             <div className="flex justify-between items-start">
               <MetricLabel>Language Learning</MetricLabel>
               <svg
@@ -460,7 +484,7 @@ export default function MetricsPage() {
               </svg>
             </div>
 
-            <div className="flex justify-between items-end mt-auto">
+            <div className="flex justify-between items-end mt-auto max-w-md">
               {duolingoLoading ? (
                 <div className="flex-1 space-y-2">
                   <SkeletonLine w="w-24" />
@@ -498,34 +522,6 @@ export default function MetricsPage() {
               ) : (
                 <p className="text-[10px] text-zinc-600 italic">Duolingo not connected</p>
               )}
-            </div>
-          </GridCell>
-
-          {/* ROW 4 */}
-          <GridCell span={4} minHeight="min-h-[200px]">
-            <MetricLabel>Technical Competency</MetricLabel>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-auto">
-              <div>
-                <div className="flex justify-between text-[11px] dark:text-white text-zinc-900 mb-2 uppercase tracking-tighter">
-                  <span>Academic Focus (VTU)</span>
-                </div>
-                <p className="text-[10px] text-zinc-500 leading-relaxed italic">
-                  Core focus: Data Engineering, MLOps, Responsible AI, and NLP.
-                </p>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-[11px] dark:text-white text-zinc-900 mb-1 uppercase tracking-tighter font-bold">
-                  <span>Data Governance</span>
-                  <span className="text-emerald-600 dark:text-emerald-500/50 border border-emerald-600/30 dark:border-emerald-500/20 px-1">
-                    CERTIFIED
-                  </span>
-                </div>
-                <p className="text-[10px] text-zinc-500 leading-relaxed">
-                  Synapse professional certification in data privacy and policy management.
-                </p>
-              </div>
             </div>
           </GridCell>
 
