@@ -1,12 +1,12 @@
 {
-    "title": "Personal Portfolio v5",
+    "title": "devfolio",
     "description": "My professional digital garden and portfolio website. Built with Next.js 14, TypeScript, and Tailwind CSS. Features dynamic GitHub integration, real-time Spotify tracking, and a bespoke design system.",
     "categories": [
         "creations",
         "now",
         "featured"
     ],
-    "status": "ongoing",
+    "status": "complete",
     "priority": 1,
     "type": "project",
     "visibility": true,
