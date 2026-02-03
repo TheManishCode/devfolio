@@ -42,6 +42,10 @@ export function CertificateCard({ cert }: { cert: Certificate }) {
             <div
                 className="group relative rounded-xl border border-zinc-400 dark:border-zinc-800 bg-[#d5d5da] dark:bg-zinc-950 overflow-hidden cursor-pointer hover:border-zinc-500 dark:hover:border-zinc-600 transition-all"
                 onClick={() => setIsModalOpen(true)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View certificate: ${cert.title}`}
+                onKeyDown={(e) => e.key === 'Enter' && setIsModalOpen(true)}
             >
                 {/* Certificate Preview - Compact */}
                 <div className="relative aspect-[4/3] bg-[#d5d5da] dark:bg-zinc-900 overflow-hidden">
@@ -88,6 +92,7 @@ export function CertificateCard({ cert }: { cert: Certificate }) {
                             </div>
                             <button
                                 onClick={() => setIsModalOpen(false)}
+                                aria-label="Close certificate modal"
                                 className="p-2 rounded-lg hover:bg-zinc-800 transition-colors shrink-0"
                             >
                                 <X size={18} className="text-zinc-400" />

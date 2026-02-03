@@ -184,6 +184,9 @@ export function Navbar() {
                                 }}
                                 onMouseEnter={() => handleMouseEnterItem(item.label)}
                                 onClick={() => handleDropdownClick(item)}
+                                aria-label={`${item.label} menu`}
+                                aria-expanded={activeDropdown === item.label}
+                                aria-haspopup="true"
                                 className={cn(
                                     "inline-flex h-9 items-center justify-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-150",
                                     "dark:text-white text-zinc-600",
@@ -308,6 +311,8 @@ export function Navbar() {
                                 <>
                                     <button
                                         onClick={() => setMobileOpenDropdown(mobileOpenDropdown === index ? -1 : index)}
+                                        aria-label={`${item.label} submenu`}
+                                        aria-expanded={mobileOpenDropdown === index}
                                         className="flex items-center justify-between w-full py-3 font-medium dark:text-zinc-300 text-zinc-700"
                                     >
                                         {item.label}
