@@ -103,7 +103,7 @@ export function Navbar() {
         }
     }, [])
 
-    const handleMouseEnterItem = (label: string) => {
+    const handleMouseEnterItem = useCallback((label: string) => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current)
 
         // Calculate position for the dropdown
@@ -122,7 +122,7 @@ export function Navbar() {
         if (item?.children) {
             item.children.forEach(child => router.prefetch(child.href))
         }
-    }
+    }, [router])
 
     // Progressive intent navigation: click handler
     const handleDropdownClick = useCallback((item: NavItem) => {
@@ -139,7 +139,7 @@ export function Navbar() {
                 handleMouseEnterItem(item.label)
             }
         }
-    }, [activeDropdown, lastClickedDropdown, router])
+    }, [activeDropdown, lastClickedDropdown, router, handleMouseEnterItem])
 
     const handleMouseLeaveNav = () => {
         timeoutRef.current = setTimeout(() => {
@@ -281,6 +281,32 @@ export function Navbar() {
 
                 {/* Right side */}
                 <div className="flex items-center gap-x-4">
+                    {/* Hire Me Button - Expandable Bubble */}
+                    <a
+                        href="https://pro.fiverr.com/s/6YGaeqA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:inline-flex items-center gap-0 hover:gap-2 p-2 hover:px-3 hover:py-2 rounded-full dark:bg-zinc-800/40 bg-[#d5d5da] border dark:border-zinc-800 border-zinc-400 hover:dark:text-zinc-200 hover:text-zinc-800 transition-all duration-300 ease-out group overflow-hidden"
+                        aria-label="Open to Work"
+                    >
+                        {/* Laptop Icon - Remote/Dev Work */}
+                        <svg className="w-[22px] h-[22px] shrink-0 dark:text-[#33E092] text-zinc-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v9A2.25 2.25 0 0118 15h-12A2.25 2.25 0 013.75 12.75V6z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 15h16.5l1.5 3a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 18l1.5-3z" />
+                            {/* Terminal Prompt on screen */}
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 10.5l-2.25-2.25m0 4.5l2.25-2.25m3 0h3" />
+                        </svg>
+
+                        {/* Expandable text */}
+                        <span className="max-w-0 group-hover:max-w-[100px] overflow-hidden whitespace-nowrap text-xs font-medium transition-all duration-300 ease-out">
+                            Open to Work
+                        </span>
+
+                        {/* Arrow - only visible on hover */}
+                        <svg className="w-0 h-0 group-hover:w-3 group-hover:h-3 shrink-0 overflow-hidden transition-all duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
                     <ThemeToggle />
 
                     <button
@@ -350,6 +376,24 @@ export function Navbar() {
                             )}
                         </div>
                     ))}
+
+                    {/* Hire Me Link for Mobile */}
+                    <a
+                        href="https://pro.fiverr.com/s/6YGaeqA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 py-3 mt-3 pt-3 border-t dark:border-zinc-800 border-zinc-200"
+                    >
+                        {/* Status indicator */}
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full dark:bg-zinc-400 bg-zinc-500 opacity-50" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 dark:bg-zinc-300 bg-zinc-600" />
+                        </span>
+                        <span className="text-sm font-medium dark:text-zinc-300 text-zinc-700">Open to Work</span>
+                        <svg className="w-4 h-4 dark:text-zinc-500 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        </svg>
+                    </a>
                 </nav>
             )}
 

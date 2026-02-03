@@ -318,7 +318,7 @@ export default function ToolkitPage() {
     return (
         <div className="max-w-7xl mx-auto pt-20 lg:pt-28 pb-20 px-6 sm:px-8 md:px-12 lg:px-16">
             {/* Header */}
-            <div className="mb-8">
+            <div className="mb-16">
                 <h1 className="text-4xl font-bold mb-2 dark:text-white text-gray-900">
                     My Gear & Uses
                 </h1>
@@ -328,15 +328,24 @@ export default function ToolkitPage() {
             </div>
 
             {/* Setup Box - Profile style like story page */}
-            <div className="relative max-w-xs mb-8">
-                <div className="aspect-square rounded-2xl overflow-hidden border dark:border-zinc-800 border-zinc-200">
-                    <div className="w-full h-full flex items-center justify-center text-6xl dark:bg-zinc-900 bg-[#d5d5da] dark:text-zinc-700 text-zinc-400">
-                        🖥️
-                    </div>
+            <div className="relative w-full max-w-2xl mb-12 group mx-auto">
+                {/* Main Image Container */}
+                <div className="relative aspect-[16/9] w-full rounded-[2rem] overflow-hidden border dark:border-zinc-800 border-zinc-200 bg-zinc-100 dark:bg-zinc-900 shadow-xl dark:shadow-emerald-900/10 shadow-emerald-500/5">
+                    <Image
+                        src="/images/gear/setup.jpeg"
+                        alt="My Gaming Setup"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        priority
+                    />
+
+                    {/* Subtle Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-50" />
                 </div>
-                {/* Decorative corner boxes like story page */}
-                <div className="absolute -bottom-3 -right-3 w-20 h-20 border-2 border-[#33E092] rounded-2xl -z-10" />
-                <div className="absolute -top-3 -left-3 w-12 h-12 bg-[#33E092]/20 rounded-xl -z-10" />
+
+                {/* Decorative Elements - Balanced size */}
+                <div className="absolute -bottom-5 -right-5 w-24 h-24 border-[3px] border-[#33E092] rounded-[2rem] -z-10 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5 opacity-80" />
+                <div className="absolute -top-5 -left-5 w-20 h-20 bg-[#33E092]/10 rounded-[2rem] -z-10 backdrop-blur-sm transition-transform duration-500 group-hover:-translate-x-1.5 group-hover:-translate-y-1.5" />
             </div>
 
             {/* Gear Section */}

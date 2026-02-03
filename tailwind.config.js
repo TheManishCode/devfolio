@@ -33,11 +33,16 @@ module.exports = {
                     from: { transform: "translateY(0)" },
                     to: { transform: "translateY(calc(-100% - var(--gap)))" },
                 },
+                shimmer: {
+                    "0%": { backgroundPosition: "200% 0" },
+                    "100%": { backgroundPosition: "-200% 0" },
+                },
             },
             animation: {
                 marquee: "marquee var(--duration) linear infinite",
                 "marquee-reverse": "marquee-reverse var(--duration) linear infinite",
                 "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+                shimmer: "shimmer 3s ease-in-out infinite",
             },
         },
     },
