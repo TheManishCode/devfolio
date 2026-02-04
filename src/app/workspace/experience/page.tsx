@@ -11,57 +11,7 @@ export const metadata: Metadata = {
 // ISR: Revalidate every hour
 export const revalidate = 3600
 
-interface Experience {
-    id: number
-    role: string
-    company: string
-    companyUrl?: string
-    companyLogo?: string | null
-    location: string
-    startDate: string
-    endDate: string | null
-    type: "Full-time" | "Part-time" | "Internship" | "Contract" | "Freelance"
-    description: string
-    responsibilities: string[]
-    technologies: string[]
-    period: string
-    duration: string
-    current: boolean
-}
-
-interface ExperienceResponse {
-    experiences: Experience[]
-    isEmpty: boolean
-    lastUpdated?: string
-    linkedInProfile?: string
-    message?: string
-}
-
-async function getExperienceData(): Promise<ExperienceResponse> {
-    try {
-        // Fetch from our API route (handles data loading and enrichment)
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
-            (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
-                'http://localhost:3000')
-
-        const res = await fetch(`${baseUrl}/api/experience`, {
-            next: { revalidate: 3600 }
-        })
-
-        if (!res.ok) {
-            throw new Error('Failed to fetch experience data')
-        }
-
-        return await res.json()
-    } catch (error) {
-        console.error('Error fetching experience:', error)
-        return {
-            experiences: [],
-            isEmpty: true,
-            message: "Unable to load experience data"
-        }
-    }
-}
+import { getExperienceData, Experience } from "@/lib/experience"
 
 function ExperienceCard({ experience }: { experience: Experience }) {
     return (

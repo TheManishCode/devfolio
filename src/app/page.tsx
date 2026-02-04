@@ -21,39 +21,11 @@ import { fetchPortfolioProjects } from "@/lib/github/api"
 import { filterByCategory } from "@/lib/github/filters"
 import { ProjectGrid } from "@/features/workspace/ProjectGrid"
 import { FiExternalLink, FiCalendar, FiMapPin } from "react-icons/fi"
+import { getExperienceData, Experience } from "@/lib/experience"
 
 export const revalidate = 3600
 
-interface Experience {
-    id: number
-    role: string
-    company: string
-    companyUrl?: string
-    location: string
-    type: string
-    period: string
-    duration: string
-    current: boolean
-}
 
-async function getExperienceData() {
-    try {
-        // Priority: explicit base URL > Netlify URL > Vercel URL > localhost
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
-            process.env.URL ||  // Netlify sets this
-            (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
-            'http://localhost:3000'
-
-        const res = await fetch(`${baseUrl}/api/experience`, {
-            next: { revalidate: 3600 }
-        })
-
-        if (!res.ok) return { experiences: [], isEmpty: true }
-        return await res.json()
-    } catch {
-        return { experiences: [], isEmpty: true }
-    }
-}
 
 export default async function HomePage() {
     const allProjects = await fetchPortfolioProjects()
