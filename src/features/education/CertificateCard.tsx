@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { X, ExternalLink, Clock, BarChart3 } from "lucide-react"
+import { X, ExternalLink, Clock, BarChart3, BadgeCheck, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface EnrichedData {
     level?: string
@@ -23,129 +23,213 @@ interface Certificate {
 }
 
 export function CertificateCard({ cert }: { cert: Certificate }) {
+    const [activeFace, setActiveFace] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const imageSrc = `/certificates/${cert.image}`
 
-    // Safety check - if data is somehow invalid, don't render
     if (!cert.image || !cert.verifyUrl) return null
 
-    const hasEnrichedData = cert.enriched && (
-        cert.enriched.skills?.length ||
-        cert.enriched.outcomes?.length ||
-        cert.enriched.level ||
-        cert.enriched.duration
-    )
+    const goNext = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        setActiveFace(1)
+    }
+
+    const goPrev = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        setActiveFace(0)
+    }
 
     return (
         <>
-            {/* Card - Smaller preview */}
-            <div
-                className="group relative rounded-xl border border-zinc-400 dark:border-zinc-800 bg-[#d5d5da] dark:bg-zinc-950 overflow-hidden cursor-pointer hover:border-zinc-500 dark:hover:border-zinc-600 transition-all"
-                onClick={() => setIsModalOpen(true)}
-            >
-                {/* Certificate Preview - Compact */}
-                <div className="relative aspect-[4/3] bg-[#d5d5da] dark:bg-zinc-900 overflow-hidden">
-                    <Image
-                        src={imageSrc}
-                        alt={cert.title}
-                        fill
-                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                    />
+            {/* Card */}
+            <article className="group flex flex-col h-full">
+                {/* Header Row - Title + Platform */}
+                <div className="flex items-center justify-between mb-3 px-0.5">
+                    <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                        {cert.platform}
+                    </span>
+                    <span className="text-[10px] font-mono text-zinc-400">{cert.year}</span>
                 </div>
 
-                {/* Meta Bar - Compact */}
-                <div className="p-3 border-t border-zinc-100 dark:border-zinc-800">
-                    <p className="text-xs font-medium text-zinc-900 dark:text-zinc-100 truncate mb-1">
-                        {cert.title}
-                    </p>
-                    <div className="flex items-center justify-between text-[10px] text-zinc-500">
-                        <span className="truncate">{cert.issuer}</span>
-                        <span className="shrink-0 ml-2">{cert.year}</span>
+                {/* Card Viewport */}
+                <div
+                    className="relative w-full aspect-[4/3] overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-300 cursor-pointer hover:shadow-xl dark:hover:shadow-black/40 hover:-translate-y-1"
+                    onClick={() => setIsModalOpen(true)}
+                >
+                    {/* Face Slider */}
+                    <div
+                        className="flex w-full h-full"
+                        style={{
+                            transform: `translateX(-${activeFace * 100}%)`,
+                            transition: "transform 400ms cubic-bezier(0.16, 1, 0.3, 1)"
+                        }}
+                    >
+                        {/* Face 1: Certificate Image */}
+                        <div className="w-full h-full flex-shrink-0 relative p-6">
+                            <Image
+                                src={imageSrc}
+                                alt={cert.title}
+                                fill
+                                className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                        </div>
+
+                        {/* Face 2: Details */}
+                        <div className="w-full h-full flex-shrink-0 p-5 flex flex-col bg-zinc-50 dark:bg-zinc-900/95">
+                            {/* Verified Badge */}
+                            <div className="flex items-center gap-2 mb-4">
+                                <BadgeCheck size={14} className="text-zinc-500" />
+                                <span className="text-[10px] uppercase tracking-wider text-zinc-500">Verified Credential</span>
+                            </div>
+
+                            {/* Meta */}
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                {cert.enriched?.level && (
+                                    <span className="flex items-center gap-1 px-2 py-1 text-[10px] bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">
+                                        <BarChart3 size={10} />
+                                        {cert.enriched.level}
+                                    </span>
+                                )}
+                                {cert.enriched?.duration && (
+                                    <span className="flex items-center gap-1 px-2 py-1 text-[10px] bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">
+                                        <Clock size={10} />
+                                        {cert.enriched.duration}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Skills */}
+                            {cert.enriched?.skills && cert.enriched.skills.length > 0 ? (
+                                <div className="flex flex-wrap gap-1.5">
+                                    {cert.enriched.skills.slice(0, 5).map((skill, i) => (
+                                        <span
+                                            key={i}
+                                            className="px-2 py-1 text-[10px] bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                                    Issued by {cert.issuer}
+                                </p>
+                            )}
+
+                            <p className="text-[10px] text-zinc-400 mt-auto">Click to expand</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Modal - Full certificate view */}
+                {/* Title + Navigation Row - BELOW the card */}
+                <div className="pt-4 px-0.5 flex-1 flex flex-col">
+                    <h3 className="font-semibold text-sm text-zinc-800 dark:text-zinc-100 line-clamp-2 mb-2 leading-snug">
+                        {cert.title}
+                    </h3>
+
+                    {/* Navigation Controls - Clear and Accessible */}
+                    <div className="flex items-center justify-between mt-auto pt-2">
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate pr-2">
+                            {cert.issuer}
+                        </p>
+
+                        {/* Arrow Controls */}
+                        <div className="flex items-center gap-1">
+                            <button
+                                onClick={goPrev}
+                                disabled={activeFace === 0}
+                                className={`p-1.5 rounded-md transition-all ${activeFace === 0
+                                        ? "text-zinc-300 dark:text-zinc-700 cursor-not-allowed"
+                                        : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                                    }`}
+                                aria-label="View certificate"
+                            >
+                                <ChevronLeft size={14} />
+                            </button>
+
+                            {/* Dots indicator */}
+                            <div className="flex items-center gap-1 px-1">
+                                <span className={`w-1.5 h-1.5 rounded-full transition-colors ${activeFace === 0 ? "bg-zinc-800 dark:bg-zinc-200" : "bg-zinc-300 dark:bg-zinc-700"}`} />
+                                <span className={`w-1.5 h-1.5 rounded-full transition-colors ${activeFace === 1 ? "bg-zinc-800 dark:bg-zinc-200" : "bg-zinc-300 dark:bg-zinc-700"}`} />
+                            </div>
+
+                            <button
+                                onClick={goNext}
+                                disabled={activeFace === 1}
+                                className={`p-1.5 rounded-md transition-all ${activeFace === 1
+                                        ? "text-zinc-300 dark:text-zinc-700 cursor-not-allowed"
+                                        : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                                    }`}
+                                aria-label="View details"
+                            >
+                                <ChevronRight size={14} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            {/* Modal */}
             {isModalOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 overflow-y-auto"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
                     onClick={() => setIsModalOpen(false)}
                 >
                     <div
-                        className="relative w-full max-w-4xl bg-zinc-900 rounded-2xl overflow-hidden my-auto"
+                        className="relative w-full max-w-4xl bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Modal Header */}
-                        <div className="flex items-start justify-between p-4 border-b border-zinc-800">
+                        <div className="flex items-start justify-between p-5 border-b border-zinc-800">
                             <div className="flex-1 min-w-0 pr-4">
-                                <p className="font-medium text-zinc-100 text-sm">{cert.title}</p>
-                                <p className="text-xs text-zinc-400 mt-1">{cert.issuer}</p>
-                                <div className="flex items-center gap-3 mt-2 text-[10px] text-zinc-500">
-                                    <span className="px-1.5 py-0.5 bg-zinc-800 rounded">{cert.platform}</span>
-                                    <span>ISSUED {cert.year}</span>
+                                <div className="flex items-center gap-2 mb-1">
+                                    <p className="font-semibold text-zinc-100">{cert.title}</p>
+                                    <BadgeCheck size={16} className="text-zinc-500" />
+                                </div>
+                                <p className="text-sm text-zinc-400 mt-1">{cert.issuer}</p>
+                                <div className="flex items-center gap-3 mt-3 text-xs text-zinc-500 flex-wrap">
+                                    <span className="px-2 py-0.5 bg-zinc-800 rounded">{cert.platform}</span>
+                                    <span>{cert.year}</span>
                                 </div>
                             </div>
                             <button
                                 onClick={() => setIsModalOpen(false)}
-                                className="p-2 rounded-lg hover:bg-zinc-800 transition-colors shrink-0"
+                                className="p-2 rounded-lg hover:bg-zinc-800 transition-colors"
                             >
                                 <X size={18} className="text-zinc-400" />
                             </button>
                         </div>
 
-                        {/* Certificate Image - Full view, no cropping */}
-                        <div className="bg-[#d5d5da] p-4">
+                        <div className="bg-zinc-100 p-6">
                             <img
                                 src={imageSrc}
                                 alt={cert.title}
-                                className="w-full h-auto"
-                                style={{ maxHeight: '70vh', objectFit: 'contain', margin: '0 auto', display: 'block' }}
+                                className="w-full h-auto rounded-lg shadow-lg"
+                                style={{ maxHeight: '60vh', objectFit: 'contain', margin: '0 auto', display: 'block' }}
                             />
                         </div>
 
-                        {/* Enriched Skills/Outcomes */}
-                        {hasEnrichedData && (cert.enriched?.skills?.length || cert.enriched?.outcomes?.length) && (
-                            <div className="p-4 border-t border-zinc-800">
-                                <div className="flex items-center gap-4 mb-3 text-xs text-zinc-500">
-                                    {cert.enriched?.level && (
-                                        <span className="flex items-center gap-1">
-                                            <BarChart3 size={12} />
-                                            {cert.enriched.level}
+                        {cert.enriched?.skills && cert.enriched.skills.length > 0 && (
+                            <div className="p-5 border-t border-zinc-800">
+                                <div className="flex flex-wrap gap-2">
+                                    {cert.enriched.skills.map((skill, i) => (
+                                        <span key={i} className="px-2.5 py-1 text-xs bg-zinc-800 text-zinc-300 rounded">
+                                            {skill}
                                         </span>
-                                    )}
-                                    {cert.enriched?.duration && (
-                                        <span className="flex items-center gap-1">
-                                            <Clock size={12} />
-                                            {cert.enriched.duration}
-                                        </span>
-                                    )}
+                                    ))}
                                 </div>
-                                {cert.enriched?.skills && cert.enriched.skills.length > 0 && (
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {cert.enriched.skills.slice(0, 6).map((skill, i) => (
-                                            <span key={i} className="px-2 py-0.5 text-[10px] bg-zinc-800 text-zinc-300 rounded">
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                )}
                             </div>
                         )}
 
-                        {/* Modal Footer */}
-                        <div className="p-4 border-t border-zinc-800 flex justify-between items-center">
-                            <p className="text-[10px] text-zinc-500 hidden sm:block">
-                                Click outside to close
-                            </p>
+                        <div className="p-5 border-t border-zinc-800 flex justify-end">
                             <a
                                 href={cert.verifyUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-[#33E092] text-black text-xs font-medium rounded-lg hover:bg-[#2bc97e] transition-colors"
+                                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-zinc-900 text-sm font-medium rounded-lg hover:bg-zinc-100 transition-colors"
                             >
                                 Verify Certificate
-                                <ExternalLink size={12} />
+                                <ExternalLink size={14} />
                             </a>
                         </div>
                     </div>
