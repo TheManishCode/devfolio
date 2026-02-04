@@ -41,8 +41,8 @@ async function getExperienceData(): Promise<ExperienceResponse> {
     try {
         // Fetch from our API route (handles data loading and enrichment)
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
-            process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
-            'http://localhost:3000'
+            (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
+                'http://localhost:3000')
 
         const res = await fetch(`${baseUrl}/api/experience`, {
             next: { revalidate: 3600 }
