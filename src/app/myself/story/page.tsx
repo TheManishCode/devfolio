@@ -82,7 +82,7 @@ export default function StoryPage() {
                                         alt={personalInfo.name}
                                         width={500}
                                         height={500}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover brightness-50"
                                         onError={() => setImageFailed(true)}
                                     />
                                 )}
