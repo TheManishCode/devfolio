@@ -14,6 +14,8 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://cdn.myanimelist.net https://s4.anilist.co https://cdn.cloudflare.steamstatic.com https://images.alphacoders.com https://images6.alphacoders.com https://images.igdb.com https://cdn2.steamgriddb.com https://upload.wikimedia.org https://cdn2.unrealengine.com https://media.rawg.io https://avatars.githubusercontent.com https://i.scdn.co https://store.steampowered.com https://readme-typing-svg.demolab.com https://raw.githubusercontent.com https://github-profile-summary-cards.vercel.app https://github-readme-stats.vercel.app https://komarev.com https://skillicons.dev https://projectpokemon.org",
       // media-src: audio and video files
       "media-src 'self' https://play.pokemonshowdown.com",
+      // frame-src: allow youtube embeds
+      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com",
       // connect-src: APIs used by the site
       "connect-src 'self' https://api.github.com https://api.wakatime.com https://api.myanimelist.net https://api.spotify.com https://accounts.spotify.com https://alfa-leetcode-api.onrender.com https://www.duolingo.com https://api.steampowered.com https://store.steampowered.com https://api.linkedin.com https://www.linkedin.com https://discord.com https://api.weatherapi.com https://github-contributions-api.jogruber.de wss:",
       "frame-ancestors 'self'",
